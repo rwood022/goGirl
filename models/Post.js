@@ -12,7 +12,7 @@ const postSchema = new Schema(
         default: Date.now,
     },
     
-    responses: [responseSchema]
+    responses: [responseSchema],
 },
     {
     toJSON: {
@@ -28,7 +28,6 @@ postSchema
         return numberofResponses;
     })
 
-// initialize the model 
 const Post = model('posts', postSchema)
 
 module.exports = Post;
