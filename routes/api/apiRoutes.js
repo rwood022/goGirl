@@ -196,7 +196,7 @@ router.get('/profiles', async (req, res) => {
 
 // create a profile route 
 // localhost:3001/api/profile
-router.post('/profile', async (req, res) => {
+router.post('/profiles', async (req, res) => {
     try {
         const newProfile = await Profile.create({ user_id: req.body.user_id, about: req.body.about, places_traveled: req.body.places_traveled }); 
         res.status(200).json(newProfile);
@@ -207,10 +207,21 @@ router.post('/profile', async (req, res) => {
 
 // update profile by user id
 // localhost:3001/api/profile
-router.put('/profile/:user_id', async (req, res) => {
+router.put('/profiles/:user_id', async (req, res) => {
     try {
         const updatedProfile = await Profile.findOneAndUpdate({user_id: req.params.user_id}, { about: req.body.about, places_traveled: req.body.places_traveled });
         res.status(200).json(updatedProfile);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}); 
+
+// delete a profile by user id 
+// localhost:3001/api/profile/:_id
+router.delete('/profiles/:_id', async (req, res) => {
+    try {
+        const deletedProfile = await Profile.findOneAndDelete({_id: req.params._id });
+        res.status(200).json(deletedProfile);
     } catch (err) {
         res.status(500).json(err);
     }
