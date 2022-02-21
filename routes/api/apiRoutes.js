@@ -47,6 +47,16 @@ router.put('/users/:_id', async (req, res) => {
     }
 }); 
 
+// delete a user by their id 
+// localhost:3001/api/users/:_id
+router.delete('/users/:_id', async (req, res) => {
+    try {
+        const deletedUser = await User.findOneAndDelete({_id: req.params._id });
+        res.status(200).json(deletedUser);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}); 
 
 // get all posts of a user by username
 // localhost:3001/api/posts/:username 
