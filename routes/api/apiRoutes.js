@@ -48,9 +48,6 @@ router.put('/users/:_id', async (req, res) => {
 }); 
 
 
-
-
-
 // get all posts of a user by username
 // localhost:3001/api/posts/:username 
 router.get('/posts/:username', async (req, res) => {
