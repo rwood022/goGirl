@@ -1,6 +1,6 @@
 const router = require('express').Router(); 
 const User = require('../../models/User');
-// const Profile = require('../../models/Profile');
+const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
 
 // get all users
@@ -183,5 +183,37 @@ router.delete('/response/:_id/:_id', async (req, res) => {
     }
 });
 
+// get all profiles
+// localhost:3001/api/profiles
+router.get('/profiles', async (req, res) => {
+    try {
+        const allProfiles = await Profile.find(); 
+        res.status(200).json(allProfiles);
+    } catch (err) {
+        res.status(500).json(err); 
+    }
+    });
+
+// create a profile route 
+// localhost:3001/api/profile
+router.post('/profile', async (req, res) => {
+    try {
+        const newProfile = await Profile.create({ user_id: req.body.user_id, about: req.body.about, places_traveled: req.body.places_traveled }); 
+        res.status(200).json(newProfile);
+    } catch (err) {
+        res.status(500).json(err); 
+    }
+    });
+
+// update profile by user id
+// localhost:3001/api/profile
+router.put('/profile/:user_id', async (req, res) => {
+    try {
+        const updatedProfile = await Profile.findOneAndUpdate({user_id: req.params.user_id}, { about: req.body.about, places_traveled: req.body.places_traveled });
+        res.status(200).json(updatedProfile);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}); 
 
 module.exports = router;
