@@ -161,5 +161,27 @@ router.delete('/posts/:_id', async (req, res) => {
     }
 }); 
 
+// post a response to another user's post 
+// localhost:3001/api/response/:responseId/reactions 
+router.post('/response/:_id', async (req, res) => {
+    try {
+        const newResponse = await Post.findOneAndUpdate({ _id: req.params._id }, { responses: { responseBody: req.body.responseBody }});
+        res.status(200).json(newResponse);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// delete a response to another user's post 
+// localhost:3001/api/response/:postId/:responseId 
+router.delete('/response/:_id/:_id', async (req, res) => {
+    try {
+        const deleteResponse = await Post.findOneAndUpdate({ _id: req.params._id }, { $pull: { response: { _id: req.params._id } } }, { new: true });
+        res.status(200).json(deleteResponse);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
