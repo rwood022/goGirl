@@ -69,6 +69,17 @@ router.put('/users/:username/:friend', async (req, res) => {
     }
     });
 
+// delete a friend by username
+// localhost:3001/api/users/:username/:friend
+router.delete('/users/:username/:friend', async (req, res) => {
+    try {
+        const deletedFriend = await User.findOneAndUpdate({ username: req.params.username }, { $pull: { friends: req.params.friend } }, { new: true });
+        res.status(200).json(deletedFriend);
+    } catch (err) {
+        res.status(500).json(err); 
+    }
+    });
+
 // get all posts of a user by username
 // localhost:3001/api/posts/:username 
 router.get('/posts/:username', async (req, res) => {
