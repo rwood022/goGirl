@@ -80,6 +80,17 @@ router.delete('/users/:username/:friend', async (req, res) => {
     }
     });
 
+// get all the posts 
+// localhost:3001/api/posts
+router.get('/posts', async (req, res) => {
+    try {
+        const allPosts = await Post.find(); 
+        res.status(200).json(allPosts);
+    } catch (err) {
+        res.status(500).json(err); 
+    }
+    });
+
 // get all posts of a user by username
 // localhost:3001/api/posts/:username 
 router.get('/posts/:username', async (req, res) => {
