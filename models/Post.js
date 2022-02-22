@@ -24,7 +24,7 @@ const postSchema = new Schema(
 postSchema
     .virtual('responseCount')
     .get(function () {
-        const numberOfResponses = this.responses.length;
+        const numberofResponses = this.responses.length;
         return numberofResponses;
     })
 
