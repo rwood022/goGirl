@@ -102,18 +102,6 @@ router.get('/posts/:username', async (req, res) => {
     }
     });
 
-// // create a new post by user id
-// // localhost:3001/api/posts
-// router.post('/posts', async (req, res) => {
-//     try {
-//         const newPost = await Post.create({ username: req.body.username, message: req.body.message });
-//         res.status(200).json(newPost);
-
-//     } catch (err) {
-//         res.status(500).json(err); 
-//     }
-// });
-
 // // create a new post and then update user table with array of posts
 // // localhost:3001/api/posts
 router.post('/posts', async (req, res) => {
@@ -162,10 +150,10 @@ router.delete('/posts/:_id', async (req, res) => {
 }); 
 
 // post a response to another user's post 
-// localhost:3001/api/response/:responseId/reactions 
+// localhost:3001/api/response/:postId 
 router.post('/response/:_id', async (req, res) => {
     try {
-        const newResponse = await Post.findOneAndUpdate({ _id: req.params._id }, { responses: { responseBody: req.body.responseBody }});
+        const newResponse = await Post.findOneAndUpdate({ _id: req.params._id }, { responses: { responseBody: req.body.responseBody, username: req.body.username }});
         res.status(200).json(newResponse);
     } catch (err) {
         res.status(500).json(err);
