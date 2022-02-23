@@ -3,10 +3,12 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import App from "../App";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
+import Header from "../components/Header";
 
 const AppRouter = () => (
   <div className="container">
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route component={App} path="/" exact />
         <Route component={SignIn} path="/signin" />

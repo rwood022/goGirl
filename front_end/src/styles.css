@@ -9,6 +9,17 @@ body {
   padding: 1rem;
 }
 
+h2 {
+  margin: 2rem 0;
+}
+
+.back-btn {
+  border: 1px solid #000;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
 .title {
   text-align: center;
 }
