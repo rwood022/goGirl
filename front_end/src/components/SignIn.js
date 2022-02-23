@@ -41,7 +41,7 @@ const SignIn = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>password</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             name="password"
