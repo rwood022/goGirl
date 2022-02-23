@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+.back-btn {
+  border: 1px solid #000;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signin-btn,
+.signup-btn {
+  display: block;
+  margin: 1rem 0;
+  width: 30%;
+  letter-spacing: 1px;
+}
