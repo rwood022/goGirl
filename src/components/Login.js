@@ -1,6 +1,59 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+// takes arguments and return the token(makes requests on behalf of the user)
+const SIGNUP_MUTATION = gql`
+  mutation SignupMutation(
+    $email: String!
+    $password: String!
+    $name: String!
+  ) {
+    signup(
+      email: $email
+      password: $password
+      name: $name
+    ) {
+      token
+    }
+  }
+`;
+
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation(
+    $email: String!
+    $password: String!
+  ) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`;
+// onClick event button uses a ternary (useMutation Hook) to call either login or signup
+const [login] = useMutation(LOGIN_MUTATION, {
+    variables: {
+      email: formState.email,
+      password: formState.password
+    },
+    onCompleted: ({ login }) => {
+      localStorage.setItem(AUTH_TOKEN, login.token);
+      navigate('/');
+    }
+  });
+  
+  const [signup] = useMutation(SIGNUP_MUTATION, {
+    variables: {
+      name: formState.name,
+      email: formState.email,
+      password: formState.password
+    },
+    onCompleted: ({ signup }) => {
+      localStorage.setItem(AUTH_TOKEN, signup.token);
+      navigate('/');
+    }
+  });
+
+
 //for users that already have an account
 const Login = () => {
   const navigate = useNavigate();
@@ -55,7 +108,8 @@ const Login = () => {
       <div className="flex mt3">
         <button
           className="pointer mr2 button"
-          onClick={() => console.log('onClick')}
+          onClick={formState.login ? login : signup}
+        //   onClick={() => console.log('onClick')}
         >
           {formState.login ? 'login' : 'create account'}
         </button>
