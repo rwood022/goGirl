@@ -39,3 +39,22 @@ h2 {
   width: 30%;
   letter-spacing: 1px;
 }
+
+/* timeline */
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.post {
+  outline: 1px solid #b0abab;
+}
+
+.response-icons {
+  text-decoration: none;
+  margin-right: 10px;
+}
