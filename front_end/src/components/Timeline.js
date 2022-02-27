@@ -1,6 +1,23 @@
-import React from 'react'; 
+// import React from 'react';
+// import { useState, useEffect } from 'react';
 
 export default function Timeline() {
+
+    
+    
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => { 
+        
+    // fetch('/api/users/').then(res => {
+    //     if(res.ok) {
+    //         return res.json()
+    //     }
+    // }).then(userData => { setData(userData)});
+
+    // }, []) 
+     
+
 
     return (
     <div> 
@@ -8,7 +25,6 @@ export default function Timeline() {
             <div className="container card-body mb-2">
                 <h5 className="mb-0">Username</h5>
                 <small>3 days ago</small><br></br>
-                {/* <small>Timestamp variable goes here</small> */}
             </div>
             
             <div className="card-body">
