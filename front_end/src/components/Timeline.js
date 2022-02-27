@@ -16,16 +16,15 @@ export default function Timeline() {
             })
             .then((res) => res.json())
             .then((data) => {
-            console.log(data);
+            console.log(data[0].username);
+            setUserData(data);
+
             })
             .catch(err => {
                 console.error(err);
             }); 
-
             
 }, []) 
-
-    
 
     return (
     <div> 
@@ -62,10 +61,6 @@ export default function Timeline() {
     ); 
 }
     
-
-
-
-
 
     // const [data, setData] = useState([]);
 
