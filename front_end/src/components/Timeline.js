@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 
 export default function Timeline() {
 
-    const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState('Username');
+    const [userPosts, setUserPosts] = useState('Posts');
 
     useEffect(() => { 
 
@@ -16,9 +17,9 @@ export default function Timeline() {
             })
             .then((res) => res.json())
             .then((data) => {
-            console.log(data[0].username);
-            setUserData(data);
-
+            // console.log(data);
+            setUserData(data[0].username);
+            setUserPosts(data[0].posts[0]);
             })
             .catch(err => {
                 console.error(err);
@@ -30,17 +31,17 @@ export default function Timeline() {
     <div> 
         <div className="post full-width">
             <div className="container card-body mb-2">
-                <h5 className="mb-0">Username</h5>
-                <small>3 days ago</small><br></br>
+                <h5 className="mb-0">{userData}</h5>
+                <small>{userPosts.createdAt}</small><br></br>
             </div>
             
             <div className="card-body">
                 <div className="card-body">
-                    This is where the message goes...
+                    {userPosts.message}
                 </div> 
                 <hr></hr>
                 <div className="card-body">
-                    This is where the responses go...
+                    {userPosts.responses}
                 </div>
             </div>
 
