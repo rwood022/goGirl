@@ -1,58 +1,31 @@
-import React from 'react';
-// import { useState, useEffect } from 'react';
+// import React from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Timeline() {
 
-    fetch('http://localhost:3001/api/users', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(),
-        })
-        .then((res) => res.json())
-        .then((userData) => {
-        console.log(userData);
+    const [userData, setUserData] = useState();
 
-        })
-        .catch(err => {
-            console.error(err);
-        }); 
-    
+    useEffect(() => { 
 
+        fetch('http://localhost:3001/api/users', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(),
+            })
+            .then((res) => res.json())
+            .then((data) => {
+            console.log(data);
+            })
+            .catch(err => {
+                console.error(err);
+            }); 
 
-
-
-
-    //  const [data, setData] = useState([]);
-
-
-//     useEffect(() => { 
-//     fetch('/api/users/').then(res => {
-//         if(res.ok) { return res.json() }
-//     }).then(userData => { 
-//         setData(userData);
-//     }).catch(error => {
-//         console.error("error fetching data", error); 
-//     }).finally(() => {
-//         setData(false); 
-//     })
-// }, []) 
+            
+}, []) 
 
     
-    
-    // const [data, setData] = useState([]);
-
-    // useEffect(() => { 
-        
-    // fetch('/api/users/').then(res => {
-    //     if(res.ok) {
-    //         return res.json()
-    //     }
-    // }).then(userData => { setData(userData)});
-
-    // }, []) 
-     
 
     return (
     <div> 
@@ -89,3 +62,19 @@ export default function Timeline() {
     ); 
 }
     
+
+
+
+
+
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => { 
+        
+    // fetch('/api/users/').then(res => {
+    //     if(res.ok) {
+    //         return res.json()
+    //     }
+    // }).then(userData => { setData(userData)});
+
+    // }, []) 
