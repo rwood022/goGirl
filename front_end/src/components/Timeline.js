@@ -18,12 +18,15 @@ export default function Timeline() {
               body: JSON.stringify(),
             })
             .then((res) => res.json())
-            .then((data) => {
-            // console.log(data);
-            setUserData(data[0].username);
-            setTimestamp(data[0].createdAt);
-            setMessage(data[0].message);
-            setResponse(data[0].responses[0].responseBody);
+            .then((posts) => {
+
+            for(let i = 0; i < posts.length; i++) {
+                setUserData(posts[i].username);
+                setTimestamp(posts[i].createdAt);
+                setMessage(posts[i].message);
+                setResponse(posts[i].responses[i].responseBody);
+            }    
+
             })
             .catch(err => {
                 console.error(err);
@@ -31,11 +34,15 @@ export default function Timeline() {
             
 }, []) 
 
+console.log(userData);
+
     return (
     <div> 
+        {/* {userData.map((userData) => (  */}
         <div className="post full-width">
             <div className="container card-body mb-2">
                 <h5 className="mb-0">{userData}</h5>
+    
                 <small>Posted at {timestamp}</small><br></br>
             </div>
             
@@ -62,6 +69,7 @@ export default function Timeline() {
                 </a>
             </div>
         </div>
+            {/* ))}  */}
     </div>
     ); 
 }
