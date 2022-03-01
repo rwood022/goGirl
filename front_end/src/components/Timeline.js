@@ -28,8 +28,7 @@ export default function Timeline() {
 }, []) 
 
     return (
-    <div>
-        <div className="timeline-container mx-auto"> 
+    <div> 
         <div className="post full-width">
             <div className="container card-body mb-2">
                 <h5 className="mb-0">{userData}</h5>
@@ -58,7 +57,6 @@ export default function Timeline() {
                 <strong>3</strong><small> Shares</small>
                 </a>
             </div>
-        </div>
         </div>
     </div>
     ); 
