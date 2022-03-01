@@ -19,12 +19,13 @@ export default function Timeline() {
             })
             .then((res) => res.json())
             .then((posts) => {
-
+                console.log(posts);
             for(let i = 0; i < posts.length; i++) {
+                
                 setUserData(posts[i].username);
                 setTimestamp(posts[i].createdAt);
                 setMessage(posts[i].message);
-                setResponse(posts[i].responses[i].responseBody);
+                setResponse(posts[i].responses);
             }    
 
             })
@@ -34,7 +35,7 @@ export default function Timeline() {
             
 }, []) 
 
-console.log(userData);
+
 
     return (
     <div> 
@@ -42,8 +43,7 @@ console.log(userData);
         <div className="post full-width">
             <div className="container card-body mb-2">
                 <h5 className="mb-0">{userData}</h5>
-    
-                <small>Posted at {timestamp}</small><br></br>
+                <small>Posted at {timestamp}</small>
             </div>
             
             <div className="card-body">
@@ -52,7 +52,9 @@ console.log(userData);
                 </div> 
                 <hr></hr>
                 <div className="card-body">
-                   {response}
+                    {response[0].username} <br></br>
+                    <p><small>{response[0].createdAt}</small></p>
+                    <p>{response[0].responseBody}</p>
                 </div>
             </div>
 
