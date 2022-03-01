@@ -139,7 +139,7 @@ router.put('/posts/:_id', async (req, res) => {
 });
 
 // delete a post by its id 
-// localhost:3001/api/users/:_id
+// localhost:3001/api/posts/:_id
 router.delete('/posts/:_id', async (req, res) => {
     try {
         const deletedPost = await User.findOneAndDelete({_id: req.params._id });

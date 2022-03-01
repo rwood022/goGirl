@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 export default function Timeline() {
 
     const [userData, setUserData] = useState('Username');
-    const [userPosts, setUserPosts] = useState('Posts');
+    const [timestamp, setTimestamp] = useState('Timestamp');
+    const [message, setMessage] = useState('Message');
+    const [response, setResponse] = useState('Response');
 
     useEffect(() => { 
 
-        fetch('http://localhost:3001/api/users', {
+        fetch('http://localhost:3001/api/posts', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -19,7 +21,9 @@ export default function Timeline() {
             .then((data) => {
             // console.log(data);
             setUserData(data[0].username);
-            setUserPosts(data[0].posts[0]);
+            setTimestamp(data[0].createdAt);
+            setMessage(data[0].message);
+            setResponse(data[0].responses[0].responseBody);
             })
             .catch(err => {
                 console.error(err);
@@ -32,16 +36,16 @@ export default function Timeline() {
         <div className="post full-width">
             <div className="container card-body mb-2">
                 <h5 className="mb-0">{userData}</h5>
-                <small>{userPosts.createdAt}</small><br></br>
+                <small>Posted at {timestamp}</small><br></br>
             </div>
             
             <div className="card-body">
                 <div className="card-body">
-                    {userPosts.message}
+                    {message}
                 </div> 
                 <hr></hr>
                 <div className="card-body">
-                    {userPosts.responses}
+                   {response}
                 </div>
             </div>
 
