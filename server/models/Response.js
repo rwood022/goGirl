@@ -21,9 +21,9 @@ const responseSchema = new Schema(
     id: false,
 });
 
-responseSchema
-    .get(function () {
-        return this.createdAt.Date.now;
-    }); 
+// responseSchema
+//     .get(function () {
+//         return this.createdAt;
+//     }); 
 
 module.exports = responseSchema;
