@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 
 export default function Timeline() {
 
-    const [userData, setUserData] = useState('Username');
-    const [timestamp, setTimestamp] = useState('Timestamp');
-    const [message, setMessage] = useState('Message');
-    const [response, setResponse] = useState('Response');
+    const [postData, setPostData] = useState([]);
+    // const [responseData, setResponseData] = useState([]);
+    // const [timestamp, setTimestamp] = useState(['Timestamp']);
+    // const [message, setMessage] = useState([]);
+    // const [response, setResponse] = useState(['Response']);
 
     useEffect(() => { 
-
+        
         fetch('http://localhost:3001/api/posts', {
             method: 'GET',
             headers: {
@@ -20,41 +21,53 @@ export default function Timeline() {
             .then((res) => res.json())
             .then((posts) => {
                 console.log(posts);
-            for(let i = 0; i < posts.length; i++) {
-                
-                setUserData(posts[i].username);
-                setTimestamp(posts[i].createdAt);
-                setMessage(posts[i].message);
-                setResponse(posts[i].responses);
-            }    
+                let postsArray = []; 
+            // for(let i = 0; i < posts.length; i++) {
+            //     setUserData(posts[i].username);
+            //     setTimestamp(posts[i].createdAt);
+
+            //     messageArray.push(posts[i].message);
+            //     setMessage(messageArray);
+
+            //     console.log(message);
+            //     setResponse(posts[i].responses);
+            // }    
+            for(let i= 0; i < posts.length; i++) {
+                postsArray.push(posts[i]);
+                setPostData(postsArray);
+
+
+                // setResponseData(posts[i].responses[0]);
+            }
+            
 
             })
             .catch(err => {
                 console.error(err);
             }); 
             
-}, []) 
+}, []); 
 
 
 
     return (
     <div> 
-        {/* {userData.map((userData) => (  */}
+     {postData && postData.map((postData) => (
         <div className="post full-width">
             <div className="container card-body mb-2">
-                <h5 className="mb-0">{userData}</h5>
-                <small>Posted at {timestamp}</small>
+                <h5 className="mb-0">{postData.username}</h5>
+                <small>Posted at {postData.createdAt}</small>
             </div>
             
             <div className="card-body">
                 <div className="card-body">
-                    {message}
+                    {postData.message}
                 </div> 
                 <hr></hr>
                 <div className="card-body">
-                    {response[0].username} <br></br>
-                    <p><small>{response[0].createdAt}</small></p>
-                    <p>{response[0].responseBody}</p>
+                   {postData.responses[0].username} <br></br>
+                    <p><small>Responded at {postData.responses[0].createdAt} </small></p>
+                    <p>responsebody  {postData.responses[0].responseBody}</p>
                 </div>
             </div>
 
@@ -71,7 +84,7 @@ export default function Timeline() {
                 </a>
             </div>
         </div>
-            {/* ))}  */}
+      ))}
     </div>
     ); 
 }
