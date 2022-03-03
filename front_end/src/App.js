@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "./components/Header";
-
+import PlacesTraveled from './components/S3'
 const App = (props) => {
   console.log(props);
 
@@ -11,7 +11,7 @@ const App = (props) => {
   };
   return (
     <div className="container">
-      <div className="login-buttons">
+      {/* <div className="login-buttons">
         <Button
           variant="primary"
           className="signin-btn"
@@ -26,7 +26,8 @@ const App = (props) => {
         >
           Sign Up
         </Button>
-      </div>
+      </div> */}
+      <PlacesTraveled />
     </div>
   );
 };
