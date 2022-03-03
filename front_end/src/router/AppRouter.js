@@ -4,6 +4,7 @@ import App from "../App";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import Header from "../components/Header";
+import Timeline from "../components/Timeline";
 
 const AppRouter = () => (
   <div className="container">
@@ -13,6 +14,7 @@ const AppRouter = () => (
         <Route component={App} path="/" exact />
         <Route component={SignIn} path="/signin" />
         <Route component={SignUp} path="/signup" />
+        <Route component={Timeline} path="/timeline" />
       </Switch>
     </BrowserRouter>
   </div>

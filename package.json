@@ -1,0 +1,33 @@
+{
+  "name": "gogirl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "server": "cd server && nodemon server.js",
+    "build": "cd front_end && npm run build",
+    "install": "cd server && npm i && cd /front_end && npm i",
+    "client": "npm start --prefix front_end",
+    "watch": "npm-watch"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwood022/goGirl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwood022/goGirl/issues"
+  },
+  "homepage": "https://github.com/rwood022/goGirl#readme"
+}
