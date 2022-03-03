@@ -7,18 +7,18 @@ export default function Timeline(props) {
   const [message, setMessage] = useState("Message");
   const [response, setResponse] = useState("Response");
 
-  useEffect(() => {
-    const { match } = props;
-    const { path = "/" } = match;
-    if (path === "/timeline") {
-      document.body.style.backgroundImage =
-        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      document.body.style.height = "100vh"; // vh stands for viewport height
-      document.body.style.backgroundRepeat = "no-repeat";
-    }
-  }, []);
+//   useEffect(() => {
+//     const { match } = props;
+//     const { path = "/" } = match;
+//     if (path === "/timeline") {
+//       document.body.style.backgroundImage =
+//         "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
+//       document.body.style.backgroundSize = "cover";
+//       document.body.style.backgroundPosition = "center";
+//       document.body.style.height = "100vh"; // vh stands for viewport height
+//       document.body.style.backgroundRepeat = "no-repeat";
+//     }
+//   }, []);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/posts", {
