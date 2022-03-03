@@ -1,10 +1,23 @@
 import { useState, useEffect } from 'react';
 import moment  from 'moment';
 
-export default function Timeline() {
+export default function Timeline(props) {
 
     const [postData, setPostData] = useState([]);
     const [timestamp, setTimestamp] = useState([]);
+
+    useEffect(() => {
+        const { match } = props;
+        const { path = "/" } = match;
+        if (path === "/timeline") {
+          document.body.style.backgroundImage =
+            "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundPosition = "center";
+          document.body.style.height = "100vh"; // vh stands for viewport height
+          document.body.style.backgroundRepeat = "no-repeat";
+        }
+      }, []);
 
     useEffect(() => { 
         
@@ -50,7 +63,7 @@ export default function Timeline() {
 }, []); 
 
     return (
-    <div> 
+    <div className="timeline"> 
      {postData && postData.map((postData) => {
          return  <div className="post full-width mt-4" key={postData._id}>
             <div className="container card-body mb-2">
