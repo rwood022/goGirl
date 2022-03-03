@@ -34,7 +34,7 @@ export default function Timeline() {
             // }    
             for(let i= 0; i < posts.length; i++) {
                 postsArray.push(posts[i]);
-                setPostData(postsArray);
+                setPostData([...postsArray]);
 
 
                 // setResponseData(posts[i].responses[0]);
@@ -52,8 +52,8 @@ export default function Timeline() {
 
     return (
     <div> 
-     {postData && postData.map((postData) => (
-        <div className="post full-width">
+     {postData && postData.map((postData) => {
+         return  <div className="post full-width" key={postData._id}>
             <div className="container card-body mb-2">
                 <h5 className="mb-0">{postData.username}</h5>
                 <small>Posted at {postData.createdAt}</small>
@@ -65,9 +65,14 @@ export default function Timeline() {
                 </div> 
                 <hr></hr>
                 <div className="card-body">
-                   {postData.responses[0].username} <br></br>
-                    <p><small>Responded at {postData.responses[0].createdAt} </small></p>
-                    <p>responsebody  {postData.responses[0].responseBody}</p>
+                   {postData.responses.map((response) => {
+                       return (<div key={response._id}><p>{response.username}</p>
+                       <p><small>Responded at {response.createdAt} </small></p>
+                       <p>responsebody  {response.responseBody}</p>
+                       </div>
+                       )
+                    }) } <br></br>
+                   
                 </div>
             </div>
 
@@ -84,7 +89,7 @@ export default function Timeline() {
                 </a>
             </div>
         </div>
-      ))}
+})}
     </div>
     ); 
 }
