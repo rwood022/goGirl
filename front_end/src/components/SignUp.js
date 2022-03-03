@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import BackButton from "./BackButton";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [state, setState] = useState({
     username: "",
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const { match } = props;
+    const { path = "/" } = match;
+    if (path === "/signup") {
+      document.body.style.backgroundImage =
+        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/images/sign_up.jpg)";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.height = "100vh";
+      document.body.style.backgroundRepeat = "no-repeat";
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -27,9 +40,9 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="sign-up">
       <BackButton />
-      <h2>Sign Up Form</h2>
+      <h2>Sign Up</h2>
       <Form onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
