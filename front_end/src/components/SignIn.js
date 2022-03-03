@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import BackButton from "./BackButton";
 
-const SignIn = () => {
+const SignIn = (props) => {
+  console.log("props", props);
   const [state, setState] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const { match } = props;
+    const { path = "/" } = match;
+    if (path === "/signin") {
+      document.body.style.backgroundImage = "url(/images/sign_in.jpg)";
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
