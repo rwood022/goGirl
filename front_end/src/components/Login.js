@@ -18,7 +18,8 @@ function Login() {
            <GoogleLogin
            client={clientId}
            button="Login"
-           onSuccess={onFailure}
+           onSuccess={onSuccess}
+           onFailure={onFailure}
            cookiePolicy={'single_host_origin'}
            isSignIn={true}
            />
