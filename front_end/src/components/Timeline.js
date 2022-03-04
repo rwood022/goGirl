@@ -1,5 +1,6 @@
 // import React from 'react';
 import { useState, useEffect } from "react";
+import { NavItem } from "react-bootstrap";
 
 export default function Timeline(props) {
   const [userData, setUserData] = useState("Username");
@@ -77,6 +78,11 @@ export default function Timeline(props) {
             <strong>3</strong>
             <small> Shares</small>
           </a>
+          <text
+            onProgress={() => props.naviation.natigate("NewReponse"), 
+            {postId: NavItem.id}
+            }       
+           >Comments</text>
         </div>
       </div>
       {/* ))}  */}
