@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import"./App.css";
+import"./styles.css";
 import LoginButton from "./components/Login";
-import LogoutButton from "./components/LogOut";
+import LogoutButton from "./components/Logout";
 import { Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import Header from "./components/Header";
+// import { Redirect } from "react-router-dom";
+// import Header from "./components/Header";
 import { gapi } from 'gapi-script';
 
 const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
