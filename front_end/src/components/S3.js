@@ -47,12 +47,28 @@ export default function PlacesTraveled() {
             })
     }
 
+    const getFile = (file) => {
+
+      const params = {
+          ACL: 'public-read',
+          Body: file,
+          Bucket: S3_BUCKET,
+          Key: file.name
+      };
+      myBucket.getObject(params)
+      .
+
+    }
+    }
+
 
     return <div>
         <div>Native SDK File Upload Progress is {progress}%</div>
         <input type="file" onChange={handleFileInput} />
         <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
     </div>
+
+
 
 }
 
