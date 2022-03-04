@@ -9,6 +9,7 @@
 body {
   padding: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  background-color:rgb(22, 64, 80);
 }
 
 h2 {
@@ -72,7 +73,7 @@ label {
   letter-spacing: 1px;
 }
 
-/* timeline */
+/* timeline and friend timeline */
 .full-width {
   width: 100vw;
   position: relative;
@@ -80,13 +81,30 @@ label {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  background-color:rgb(69, 124, 159);
 }
 
 .post {
-  outline: 1px solid #b0abab;
+  outline: 1px solid rgb(13, 103, 159);
+}
+
+hr {
+  color: rgb(13, 103, 159);
 }
 
 .response-icons {
   text-decoration: none;
   margin-right: 10px;
 }
+
+.card-footer {
+  background-color: rgb(13, 103, 159); 
+}
+
+.post-links {
+  color: white;
+}
+
+/* .timeline-title {
+  color: rgb(66, 71, 193); 
+} */

@@ -93,17 +93,10 @@ export default function Timeline(props) {
             </div>
 
             <div className="card-footer">
-                <a href="/" className="d-inline-block text-muted response-icons">
-                    <strong>23</strong>
-                    <small >  Likes</small>
-                </a>
-                <a href="/" className="d-inline-block text-muted response-icons">
-                    <strong>12</strong><small>  Comments</small>
-                </a>
-                <a href="/" className="d-inline-block text-muted response-icons">
-                <strong>3</strong><small> Shares</small>
-                </a>
-            </div>
+             <a href="/" className="d-inline-block text-muted response-icons">
+                 <strong className="post-links">12</strong><small className="post-links">  Comments</small>
+             </a>
+         </div>
         </div>
 })}
     </div>

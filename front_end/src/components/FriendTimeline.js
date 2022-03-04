@@ -6,9 +6,6 @@ export default function FriendTimeline() {
     const [postData, setPostData] = useState([]);
     const [timestamp, setTimestamp] = useState([]);
 
- 
-    
-
     useEffect(() => { 
         
         fetch('http://localhost:3001/api/posts', {
@@ -54,9 +51,7 @@ export default function FriendTimeline() {
 
     return (
     <div>
-  hi
-    <div>
-       
+
   { postData && postData.map((postData) => {
       return  <div className="post full-width mt-4" key={postData._id}>
          <div className="container card-body mb-2">
@@ -87,19 +82,11 @@ export default function FriendTimeline() {
 
          <div className="card-footer">
              <a href="/" className="d-inline-block text-muted response-icons">
-                 <strong>23</strong>
-                 <small >  Likes</small>
-             </a>
-             <a href="/" className="d-inline-block text-muted response-icons">
-                 <strong>12</strong><small>  Comments</small>
-             </a>
-             <a href="/" className="d-inline-block text-muted response-icons">
-             <strong>3</strong><small> Shares</small>
+                 <strong className="post-links">12</strong><small className="post-links">  Comments</small>
              </a>
          </div>
      </div>
 })}
-  </div>
   </div>
 ); 
 }
