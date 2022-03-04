@@ -28,6 +28,6 @@ postSchema
         return numberofResponses;
     })
 
-const Post = model('posts', postSchema)
+const Post = model('Post', postSchema)
 
 module.exports = Post;

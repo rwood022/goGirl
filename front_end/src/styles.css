@@ -45,7 +45,7 @@ label {
   letter-spacing: 1px;
 }
 
-/* .timeline {
+.timeline {
   color: rgb(17, 16, 16);
   background-color: rgb(128, 158, 163);
 }
@@ -55,7 +55,7 @@ label {
 .timeline a:hover,
 .timeline a:active {
   color: rgb(17, 16, 16);
-} */
+}
 
 .login-buttons {
   display: flex;
@@ -82,6 +82,7 @@ label {
   margin-left: -50vw;
   margin-right: -50vw;
   /* background-color: rgb(128, 158, 163); */
+  padding-bottom: 20px;
 }
 
 .post {
