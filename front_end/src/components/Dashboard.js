@@ -1,7 +1,8 @@
 // import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
-// import ProfileUpdateButton from './DashboardComponents/ProfileUpdateButton';
+import Profile from './DashboardComponents/Profile';
+import ProfileButton from './DashboardComponents/ProfileButton';
 // import Profile from './DashboardComponents/Profile';
 // import ProfileUpdate from './DashboardComponents/ProfileUpdate';
 import Timeline from './DashboardComponents/Timeline';
@@ -22,24 +23,21 @@ export default function Dashboard(props) {
         }
       }, []);
 
-    // const [currentComponent, setCurrentComponent] = useState('Profile'); 
+    const [currentComponent, setCurrentComponent] = useState('!Profile'); 
+    const handleComponentChange = (component) => setCurrentComponent(component);
 
-    // const renderComponent = () => {
-    //     if (currentComponent === 'Profile') {
-    //         return <Profile />; 
-    //     }
-    //     if (currentComponent === 'ProfileUpdate') {
-    //         return <ProfileUpdate />
-    //     }
-    // }
+    const renderComponent = () => {
+        if (currentComponent === 'Profile') { 
+            return <Profile />
+        } 
+    }
 
-    // const handleComponentChange = (component) => setCurrentComponent(component);
+   
 
     return (
         <div>
-            <p>this is the DASHBOARD</p>
-            {/* {renderComponent()} */}
-            {/* <ProfileUpdateButton currentComponent={currentComponent} handleComponentChange={handleComponentChange}/> */}
+            <ProfileButton currentComponent={currentComponent} handleComponentChange={handleComponentChange} />
+            {renderComponent()}
             <Timeline />
             
         </div>
