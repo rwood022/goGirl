@@ -50,7 +50,7 @@ export default function FriendTimeline() {
 
 
     return (
-    <div>
+    <div className="timeline">
 
   { postData && postData.map((postData) => {
       return  <div className="post full-width mt-4" key={postData._id}>

@@ -47,7 +47,7 @@ label {
 }
 
 .timeline {
-  color: #fff;
+  color: rgb(22, 64, 80);
 }
 
 .timeline a:link,
@@ -81,15 +81,15 @@ label {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color:rgb(69, 124, 159);
+  background-color: white;
 }
 
 .post {
-  outline: 1px solid rgb(13, 103, 159);
+  outline: 1px solid rgb(22, 64, 80);
 }
 
 hr {
-  color: rgb(13, 103, 159);
+  color: rgb(22, 64, 80);
 }
 
 .response-icons {
@@ -98,7 +98,7 @@ hr {
 }
 
 .card-footer {
-  background-color: rgb(13, 103, 159); 
+  background-color: rgb(10, 117, 150); 
 }
 
 .post-links {
