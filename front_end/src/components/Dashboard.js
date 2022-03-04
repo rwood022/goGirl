@@ -1,12 +1,8 @@
-// import React, { useState } from 'react';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Profile from './DashboardComponents/Profile';
 import ProfileButton from './DashboardComponents/ProfileButton';
-// import Profile from './DashboardComponents/Profile';
-// import ProfileUpdate from './DashboardComponents/ProfileUpdate';
 import Timeline from './DashboardComponents/Timeline';
-// import FriendTimeline from './DashboardComponents/FriendTimeline';
 
 export default function Dashboard(props) {
 
@@ -31,8 +27,6 @@ export default function Dashboard(props) {
             return <Profile />
         } 
     }
-
-   
 
     return (
         <div>
