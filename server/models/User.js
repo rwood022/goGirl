@@ -1,43 +1,35 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
-<<<<<<< HEAD
+const userSchema = new Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    trimmed: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  friends: [
     {
-        username: {
-            type: String,
-            Unique: true,
-            required: true,
-            trimmed: true
-        },
-        password: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        friends: [{
-            type: Schema.Types.String,
-            ref: 'User',
-        }],
-        profile: {
-            type: Schema.Types.String,
-            ref: 'Profile',
-        }, 
-        posts: [{
-            type: Schema.Types.String,
-            ref: 'Post',
-        }],
+      type: Schema.Types.String,
+      ref: "User",
     },
-=======
-{
-    username: { type: String, Unique: true, required: true, trimmed: true }, 
-    password: { type: String, required: true, unique: true},
-    friends: [{ type: Schema.Types.String, ref: 'user',}],
+  ],
+  profile: {
+    type: Schema.Types.String,
+    ref: "Profile",
+  },
+  posts: [
+    {
+      type: Schema.Types.String,
+      ref: "Post",
+    },
+  ],
+});
 
-},
->>>>>>> ba1509b0ae4aaa1902446b6fec56bedeceed3134
-);
-
-
-const User = model('User', userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;

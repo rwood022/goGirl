@@ -46,14 +46,15 @@ label {
 }
 
 .timeline {
-  color: #fff;
+  color: rgb(17, 16, 16);
+  background-color: rgb(128, 158, 163);
 }
 
 .timeline a:link,
 .timeline a:visited,
 .timeline a:hover,
 .timeline a:active {
-  color: #ccc;
+  color: rgb(17, 16, 16);
 }
 
 .login-buttons {
@@ -80,6 +81,7 @@ label {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  /* background-color: rgb(128, 158, 163); */
   padding-bottom: 20px;
 }
 
