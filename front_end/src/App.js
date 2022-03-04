@@ -5,7 +5,7 @@ import LogoutButton from "./components/Logout";
 import { gapi } from "gapi-script";
 // import { Redirect } from "react-router-dom";
 // import Header from "./components/Header";
-// import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com";
 
@@ -26,7 +26,7 @@ const App = (props) => {
       function start(){
         gapi.client.init({
           clientId: clientId,
-          spoce: ""
+          scope: ""
         })
       };
 
