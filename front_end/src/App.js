@@ -3,7 +3,7 @@ import"./styles.css";
 import LoginButton from "./components/Login";
 import LogoutButton from "./components/Logout";
 import { Button } from "react-bootstrap";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 // import Header from "./components/Header";
 import { gapi } from 'gapi-script';
 
@@ -34,6 +34,8 @@ const App = (props) => {
       document.body.style.backgroundRepeat = "no-repeat";
     }
   }, []);
+
+  // var accessToken = gapi.auth.getToken().access_token;
 
   const handleRedirect = (path) => {
     props.history.push(path);

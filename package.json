@@ -9,7 +9,7 @@
     "start": "node server/server.js",
     "server": "cd server && nodemon server.js",
     "build": "cd front_end && npm run build",
-    "install": "cd server && npm i && cd /front_end && npm i",
+    "install": "cd server && npm i && cd ../front_end && npm i",
     "client": "npm start --prefix front_end",
     "watch": "npm-watch"
   },
