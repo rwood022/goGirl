@@ -6,7 +6,7 @@ const User = require('../models/userModel');
 const s3 = new aws.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
-    region: process.env.US East (N. Virginia) us-east-1,
+    region: process.env.us-east-1,
 })
 
 

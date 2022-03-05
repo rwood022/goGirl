@@ -6,18 +6,18 @@ export default function Timeline(props) {
     const [postData, setPostData] = useState([]);
     const [timestamp, setTimestamp] = useState([]);
 
-    useEffect(() => {
-        const { match } = props;
-        const { path = "/" } = match;
-        if (path === "/timeline") {
-          document.body.style.backgroundImage =
-            "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
-          document.body.style.backgroundSize = "cover";
-          document.body.style.backgroundPosition = "center";
-          document.body.style.height = "100vh"; // vh stands for viewport height
-          document.body.style.backgroundRepeat = "no-repeat";
-        }
-      }, []);
+    // useEffect(() => {
+    //     const { match } = props;
+    //     const { path = "/" } = match;
+    //     if (path === "/timeline") {
+    //       document.body.style.backgroundImage =
+    //         "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
+    //       document.body.style.backgroundSize = "cover";
+    //       document.body.style.backgroundPosition = "center";
+    //       document.body.style.height = "100vh"; // vh stands for viewport height
+    //       document.body.style.backgroundRepeat = "no-repeat";
+    //     }
+    //   }, []);
 
     useEffect(() => { 
         
@@ -93,17 +93,10 @@ export default function Timeline(props) {
             </div>
 
             <div className="card-footer">
-                <a href="/" className="d-inline-block text-muted response-icons">
-                    <strong>23</strong>
-                    <small >  Likes</small>
-                </a>
-                <a href="/" className="d-inline-block text-muted response-icons">
-                    <strong>12</strong><small>  Comments</small>
-                </a>
-                <a href="/" className="d-inline-block text-muted response-icons">
-                <strong>3</strong><small> Shares</small>
-                </a>
-            </div>
+             <a href="/" className="d-inline-block text-muted response-icons">
+                 <strong className="post-links">12</strong><small className="post-links">  Comments</small>
+             </a>
+         </div>
         </div>
 })}
     </div>
