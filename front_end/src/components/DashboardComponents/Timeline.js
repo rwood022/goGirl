@@ -64,7 +64,7 @@ export default function Timeline(props) {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="timeline">
         {postData &&
           postData.map((postData) => {

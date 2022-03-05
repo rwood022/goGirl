@@ -32,6 +32,11 @@ body {
   letter-spacing: 1px;
 }
 
+.nav-bar .emergency {
+  color: #ff0000;
+  font-weight: bold;
+}
+
 h2 {
   margin: 2rem 0;
   color: #fff;

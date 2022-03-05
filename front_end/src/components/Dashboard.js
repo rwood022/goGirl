@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Profile from "./DashboardComponents/Profile";
-import ProfileButton from "./DashboardComponents/ProfileButton";
 import Timeline from "./DashboardComponents/Timeline";
+import Navbar from "./Navbar";
 
 export default function Dashboard(props) {
   useEffect(() => {
@@ -18,22 +18,13 @@ export default function Dashboard(props) {
     }
   }, []);
 
-  const [currentComponent, setCurrentComponent] = useState("!Profile");
-  const handleComponentChange = (component) => setCurrentComponent(component);
-
-  const renderComponent = () => {
-    if (currentComponent === "Profile") {
-      return <Profile />;
-    }
-  };
+  const [toggle, setToggle] = useState(false);
+  const handleButtonClick = () => setToggle(toggle => !toggle);
 
   return (
     <div>
-      <ProfileButton
-        currentComponent={currentComponent}
-        handleComponentChange={handleComponentChange}
-      />
-      {renderComponent()}
+      <Navbar handleButtonClick={handleButtonClick}/>
+      { toggle && <Profile />}
     </div>
   );
 }
