@@ -36,7 +36,7 @@ const App = (props) => {
     }
   }, []);
 
-  // var accessToken = gapi.auth.getToken().access_token;
+  var accessToken = gapi.auth.getToken().access_token;
 
   const handleRedirect = (path) => {
     props.history.push(path);
