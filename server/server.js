@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
@@ -10,6 +11,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
+
+mongoose.connect('mongodb://127.0.0.1:27017/projectDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set("useCreateIndex", true);
 
 
 db.once('open', () => {
