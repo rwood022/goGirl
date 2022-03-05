@@ -5,6 +5,9 @@ import AWS from 'aws-sdk';
 const S3_BUCKET = 'gogirlapp';
 const REGION = 'us-east-1';
 
+let mimes = {
+  'jpeg': 'data:image/jpeg;base64'
+}
 
 AWS.config.update({
     accessKeyId: 'AKIAQGKT3UZCAOXL6DXQ',
@@ -47,11 +50,44 @@ export default function S3() {
             })
     }
 
-       return <div>
+    function encode(data)
+      {
+          var str = data.reduce(function(a,b){ return a+String.fromCharCode(b) },'');
+          return btoa(str).replace(/.{76}(?=.)/g,'$&\n');
+      }
+
+      function getUrlByFileName(fileName,mimeType) {
+          return new Promise(
+              function (resolve, reject) {
+                  myBucket.getObject({Key: fileName}, function (err, file) {
+                      var result =  mimeType + encode(file.Body);
+                      resolve(result)
+                  });
+              }
+          );
+      }
+
+      // function openInNewTab(url) {
+      //   console.log(url);
+      //     var redirectWindow = window.open(url, '_blank');
+      //     redirectWindow.location;
+      // }
+
+      getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
+          document.querySelector('img').src = data;
+      });
+      const imageName = document.querySelector('#imageName').value;
+
+       return (
+       <div>
         <div>Native SDK File Upload Progress is {progress}%</div>
-        <input type="file" onChange={handleFileInput} />
+        <input type="file" id="imageName" onChange={handleFileInput} />
         <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
+
+        
+        <img src={`https://gogirlapp.s3.amazonaws.com/${imageName}`} width='200px' height="200px" />
     </div>
+    )
 }
 // function downloadFile(file) {
 
