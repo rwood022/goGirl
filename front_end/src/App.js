@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "./components/Header";
-
+import S3 from "./components/S3";
 
 const App = (props) => {
   console.log({ props });

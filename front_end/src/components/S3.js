@@ -19,7 +19,7 @@ const myBucket = new AWS.S3({
 })
 
 
-export default function PlacesTraveled() {
+export default function S3() {
 
 
     const [progress, setProgress] = useState(0);
@@ -47,84 +47,92 @@ export default function PlacesTraveled() {
             })
     }
 
-    const getFile = (file) => {
-
-      const params = {
-          ACL: 'public-read',
-          Body: file,
-          Bucket: S3_BUCKET,
-          Key: file.name
-      };
-      myBucket.getObject(params)
-      .
-
-    }
-    }
-
-
-    return <div>
+       return <div>
         <div>Native SDK File Upload Progress is {progress}%</div>
         <input type="file" onChange={handleFileInput} />
         <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
     </div>
-
-
-
 }
+// function downloadFile(file) {
 
-// var s3 = new AWS.S3();
-// s3.getObject(
-//   { Bucket: "gogirlapp", Key: "wallpaper.jpg" },
-//   function (error, data) {
-//     if (error != null) {
-//       alert("Failed to retrieve an object: " + error);
-//     } else {
-//       alert("Loaded " + data.ContentLength + " bytes");
-//       // do something with data.Body
-//     }
-//   }
-// );
+//   const params = {
+//     ACL: 'public-read',
+//     Body: file,
+//     Bucket: S3_BUCKET,
+//     Key: "vienna.jpg"
+//   };
 
-const InputDownload = () => {
-    const [template, setTemplate] = useState('Choose Template');
+//   myBucket.getObject(params)
+//     // .on('httpUploadProgress', (evt) => {
+//     //     setProgress(Math.round((evt.loaded / evt.total) * 100))
+//     // })
+//     .send((err) => {
+//       if (err)
+//         console.log(err);
+//     });
+
+
+//   return <div>
+//     {/* <div>Native SDK File download Progress is {progress}%</div> */}
+//     {/* <input type="file" onChange={handleFileInput} /> */}
+//     <button onClick={() => downloadFile("vienna.jpg")}> Download</button>
+//   </div>;
+
+// }
+
+// // var s3 = new AWS.S3();
+// // s3.getObject(
+// //   { Bucket: "gogirlapp", Key: "wallpaper.jpg" },
+// //   function (error, data) {
+// //     if (error != null) {
+// //       alert("Failed to retrieve an object: " + error);
+// //     } else {
+// //       alert("Loaded " + data.ContentLength + " bytes");
+// //       // do something with data.Body
+// //     }
+// //   }
+// // );
+
+// // const InputDownload = () => {
+// //     const [template, setTemplate] = useState('Choose Template');
   
-    AWS.config.update({
-        accessKeyId: 'AKIAQGKT3UZCAOXL6DXQ',
-        secretAccessKey: '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'
-    });
+// //     AWS.config.update({
+// //         accessKeyId: 'AKIAQGKT3UZCAOXL6DXQ',
+// //         secretAccessKey: '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'
+// //     });
   
-    const handleDownload = () => {
-      const s3 = new AWS.S3();
+// //     const handleDownload = () => {
+// //       const s3 = new AWS.S3();
   
-      const params = {
-        Bucket: process.env.gogirlapp,
-        Key: `templates/${template}`,
-      };
+// //       const params = {
+// //         Bucket: process.env.gogirlapp,
+// //         Key: `templates/${template}`,
+// //       };
   
-      s3.getObject(params, (err, data) => {
-        if (err) {
-          console.log(err, err.stack);
-        } else {
-          console.log(data.Body.toString());
-        }
-      });
+// //       s3.getObject(params, (err, data) => {
+// //         if (err) {
+// //           console.log(err, err.stack);
+// //         } else {
+// //           console.log(data.Body.toString());
+// //         }
+// //       });
   
-  }
+// //   }
   
-    return (
-      <>
-        <form className='bg-white my-4'>
+// //     return (
+// //       <>
+// //         <form className='bg-white my-4'>
         
-          <input
-            type='submit'
-            value='Download'
-            className='btn btn-primary btn-block mt-3'
-            onClick={handleDownload}
-          />
+// //           <input
+// //             type='submit'
+// //             value='Download'
+// //             className='btn btn-primary btn-block mt-3'
+// //             onClick={handleDownload}
+// //           />
         
-        </form>
-      </>
-    );
-  };
-InputDownload();
+// //         </form>
+// //       </>
+// //     );
+// //   };
+// // InputDownload();
   
