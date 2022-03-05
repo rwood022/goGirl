@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
 export default function Timeline(props) {
   const [postData, setPostData] = useState([]);
   const [timestamp, setTimestamp] = useState([]);
 
   useEffect(() => {
+    console.log("pp", props);
     const { match } = props;
     const { path = "/" } = match;
     if (path === "/timeline") {
