@@ -6,7 +6,12 @@ const Navbar = () => {
     <ul className="nav-bar">
       <li>
         <NavLink to="/dashboard" className="nav-link">
-          Profile
+          View Profile
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/timeline" className="nav-link">
+          Post
         </NavLink>
       </li>
       <li>
