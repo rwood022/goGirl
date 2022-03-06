@@ -23,3 +23,11 @@ server.post("/api/v1/auth/google", async (req, res) => {
     res.json(user)
 
 })
+
+server.delete("/api/v1/auth/logout", async (req, res) => {
+    await req.session.destroy()
+    res.status(200)
+    res.json({
+        message: "Logged out successfully"
+    })
+})
