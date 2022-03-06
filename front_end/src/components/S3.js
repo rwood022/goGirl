@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AWS from 'aws-sdk';
 
 const S3_BUCKET = 'gogirlapp';
@@ -30,6 +29,7 @@ export default function S3() {
 
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
+ 
     }
 
     const uploadFile = (file) => {
@@ -48,7 +48,8 @@ export default function S3() {
             .send((err) => {
                 if (err) console.log(err)
             })
-    }
+    
+    } 
 
     function encode(data)
       {
@@ -76,7 +77,18 @@ export default function S3() {
       getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
           document.querySelector('img').src = data;
       });
-      const imageName = document.querySelector('#imageName').value;
+
+  
+      const [imageName, setImageName ] = useState("Coco.JPG"); 
+ 
+      useEffect(() => {
+        if(selectedFile) {
+            // const imageInput =  document.querySelector('#imageName').name;
+          setImageName(selectedFile.name);
+        } 
+     
+      }, [progress]); 
+       
 
        return (
        <div>
@@ -84,11 +96,11 @@ export default function S3() {
         <input type="file" id="imageName" onChange={handleFileInput} />
         <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
 
-        
         <img src={`https://gogirlapp.s3.amazonaws.com/${imageName}`} width='200px' height="200px" />
     </div>
     )
 }
+
 // function downloadFile(file) {
 
 //   const params = {
