@@ -25,7 +25,7 @@ export default function S3() {
 
 
     const [progress, setProgress] = useState(0);
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(0);
 
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
@@ -48,8 +48,12 @@ export default function S3() {
             .send((err) => {
                 if (err) console.log(err)
             })
-    
+
+        getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
+            document.querySelector('img').src = data;
+        });
     } 
+
 
     function encode(data)
       {
@@ -57,7 +61,7 @@ export default function S3() {
           return btoa(str).replace(/.{76}(?=.)/g,'$&\n');
       }
 
-      function getUrlByFileName(fileName,mimeType) {
+      function getUrlByFileName(fileName, mimeType) {
           return new Promise(
               function (resolve, reject) {
                   myBucket.getObject({Key: fileName}, function (err, file) {
@@ -68,35 +72,38 @@ export default function S3() {
           );
       }
 
+      const imageName = selectedFile.name;
+
+
+    
       // function openInNewTab(url) {
       //   console.log(url);
       //     var redirectWindow = window.open(url, '_blank');
       //     redirectWindow.location;
       // }
 
-      getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
-          document.querySelector('img').src = data;
-      });
 
-  
-      const [imageName, setImageName ] = useState("Coco.JPG"); 
+    //   const [imageName, setImageName ] = useState("Coco.JPG"); 
  
-      useEffect(() => {
-        if(selectedFile) {
-            // const imageInput =  document.querySelector('#imageName').name;
-          setImageName(selectedFile.name);
-        } 
-     
-      }, [progress]); 
+    // const [imageName, setImageName] = useState(selectedFile.name);
+ 
+    // useEffect(() => {
+    //     // const imageInput =  document.querySelector('#imageName').name;
+    //     if(selectedFile) {
+    //         setImageName(selectedFile.name);
+    //     }
+        
+    // }, [selectedFile]); 
+       
        
 
        return (
        <div>
-        <div>Native SDK File Upload Progress is {progress}%</div>
-        <input type="file" id="imageName" onChange={handleFileInput} />
-        <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
-
+        <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
+        <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
+        <button className="btn btn-light" onClick={() => uploadFile(selectedFile, getUrlByFileName)}> Upload to S3</button>
         <img src={`https://gogirlapp.s3.amazonaws.com/${imageName}`} width='200px' height="200px" />
+
     </div>
     )
 }
