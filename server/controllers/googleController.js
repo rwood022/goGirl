@@ -31,3 +31,8 @@ server.delete("/api/v1/auth/logout", async (req, res) => {
         message: "Logged out successfully"
     })
 })
+
+server.get("/me", async (req, res) => {
+    res.status(200)
+    res.json(req.user)
+})
