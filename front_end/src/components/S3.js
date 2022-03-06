@@ -101,7 +101,7 @@ export default function S3() {
        <div>
         <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
         <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
-        <button className="btn btn-light" onClick={() => uploadFile(selectedFile, getUrlByFileName)}> Upload to S3</button>
+        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
         <img src={`https://gogirlapp.s3.amazonaws.com/${imageName}`} width='200px' height="200px" />
 
     </div>
