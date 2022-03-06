@@ -22,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "server": "cd ../server && nodemon server.js",
+    "install": "cd ../server && npm i && npm i",
+    "client": "npm start --prefix ../front_end"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   }

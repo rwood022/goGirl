@@ -6,6 +6,7 @@ import SignIn from "../components/SignIn";
 import Header from "../components/Header";
 import Dashboard from "../components/Dashboard";
 import Timeline from "../components/DashboardComponents/Timeline";
+import ProfileUpdate from '../components/DashboardComponents/ProfileUpdate'
 
 const AppRouter = () => (
   <div className="container">
@@ -17,6 +18,8 @@ const AppRouter = () => (
         <Route component={SignUp} path="/signup" />
         <Route component={Dashboard} path="/dashboard" />
         <Route component={Timeline} path="/timeline" />
+        <Route component={ProfileUpdate} path="/profileupdate" />
+   
       </Switch>
     </BrowserRouter>
   </div>
