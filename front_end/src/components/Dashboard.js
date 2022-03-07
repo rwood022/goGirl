@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./DashboardComponents/Navbar";
 import Profile from "./DashboardComponents/Profile";
 import Timeline from "./DashboardComponents/Timeline";
 
