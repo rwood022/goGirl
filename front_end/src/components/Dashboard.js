@@ -26,7 +26,6 @@ export default function Dashboard(props) {
     <div>
       <Navbar handleButtonClick={handleButtonClick}/>
       { toggle && <Profile />}
-      <NewPost />
       <Timeline />
     </div>
   );

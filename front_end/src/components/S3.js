@@ -47,19 +47,23 @@ export default function S3() {
             .send((err) => {
                 if (err) console.log(err)
             })
+
+        getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
+                document.querySelector('img').src = data;
+            });
     } 
 
-    fetch("http://localhost:3001/api/posts", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
-        })
-        .then((res) => res.json())
-        .then((posts) => {
-        console.log(posts);
-    })
+    // fetch("http://localhost:3001/api/posts", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
+    //     })
+    //     .then((res) => res.json())
+    //     .then((posts) => {
+    //     console.log(posts);
+    // })
 
     function encode(data)
     {
@@ -78,16 +82,14 @@ export default function S3() {
         );
     }
 
-    getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
-        document.querySelector('img').src = data;
-    });
+ 
 
 
     return (
-       <div>
-        <div class="input-group">
+    <div>
+        <div className="input-group">
         <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
-        <div class="input-group-btn">
+        <div className="input-group-btn">
             <button className="btn btn-dark" onClick={() => uploadFile(selectedFile)}> Upload</button>        
         </div>
         </div>
