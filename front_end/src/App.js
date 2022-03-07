@@ -3,6 +3,7 @@ import"./styles.css";
 import { Button } from "react-bootstrap";
 // import { Redirect } from "react-router-dom";
 // import Header from "./components/Header";
+// import S3 from "./components/S3";
 // import { gapi } from 'gapi-script';
 import Auth from './components/Auth';
 

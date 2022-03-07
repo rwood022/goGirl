@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import Navbar from "./DashboardComponents/Navbar";
 import Profile from "./DashboardComponents/Profile";
+import NewPost from "./DashboardComponents/NewPost";
 import Timeline from "./DashboardComponents/Timeline";
-import Navbar from "./Navbar";
 
 export default function Dashboard(props) {
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function Dashboard(props) {
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundPosition = "center";
       document.body.style.height = "100vh"; // vh stands for viewport height
-      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundRepeat = "repeat";
     }
   }, []);
 
@@ -25,6 +26,8 @@ export default function Dashboard(props) {
     <div>
       <Navbar handleButtonClick={handleButtonClick}/>
       { toggle && <Profile />}
+      <NewPost />
+      <Timeline />
     </div>
   );
 }

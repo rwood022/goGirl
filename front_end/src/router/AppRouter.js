@@ -4,14 +4,10 @@ import App from "../App";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import Header from "../components/Header";
-import Timeline from "../components/DashboardComponents/Timeline";
-
-
-import FriendTimeline from "../components/DashboardComponents/FriendTimeline";
+import Dashboard from "../components/Dashboard";
+import ProfileUpdate from '../components/DashboardComponents/ProfileUpdate'
 
 const AppRouter = () => (
-
-
   <div className="container">
     <BrowserRouter>
       <Header />
@@ -19,10 +15,9 @@ const AppRouter = () => (
         <Route component={App} path="/" exact />
         <Route component={SignIn} path="/signin" />
         <Route component={SignUp} path="/signup" />
-        <Route component={Timeline} path="/timeline"/>
-        <Route component={Timeline} path="/timeline" />
-        <Route component={FriendTimeline} path="/Dashboard/friend_timeline" />
-  
+        <Route component={Dashboard} path="/dashboard" />
+        <Route component={ProfileUpdate} path="/profileupdate" />
+   
       </Switch>
     </BrowserRouter>
   </div>
