@@ -9,7 +9,6 @@ import Auth from './components/Auth';
 
 // const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
 
-import S3 from "./components/S3";
 
 const App = (props) => {
   console.log({ props });
