@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import axios from 'axios';
 import BackButton from "./BackButton";
 
 const SignUp = (props) => {
   const [state, setState] = useState({
     username: "",
-    email: "",
+   // email: "",
     password: "",
+    cpassword: ""
   });
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     const { match } = props;
@@ -34,15 +37,42 @@ const SignUp = (props) => {
     });
   };
 
-  const handleOnSubmit = (event) => {
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
     console.log(state);
+    const username = state.username.trim();
+    const password = state.password.trim();
+    const cpassword = state.cpassword.trim();
+    if(password !== cpassword) {
+      setErrorMsg("Password and confirm password do not match.");
+      return;
+    }
+   try {
+    if(username !== '' && password !== '') {
+      setErrorMsg("");
+      const { data } = await axios.post('/api/users', {
+        username,
+        password
+      });
+
+      console.log('result', data);
+      props.history.push('/signin');
+    }
+   } catch (error) {
+     console.log(error.response);
+     if(error.response && error.response.data) {
+       setErrorMsg(error.response.data);
+     }
+     console.log('error', error);
+   }
+   
   };
 
   return (
     <div className="sign-up">
       <BackButton />
       <h2>Sign Up</h2>
+      {errorMsg && <p className="error-msg">{errorMsg}</p>}
       <Form onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
@@ -54,7 +84,7 @@ const SignUp = (props) => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="email">
+        {/*<Form.Group className="mb-3" controlId="email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -63,7 +93,7 @@ const SignUp = (props) => {
             value={state.email}
             onChange={handleInputChange}
           />
-        </Form.Group>
+        </Form.Group>*/}
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -74,8 +104,18 @@ const SignUp = (props) => {
             onChange={handleInputChange}
           />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="cpassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="cpassword"
+            placeholder="Please enter your confirm password"
+            value={state.cpassword}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
-          Sign In
+          Sign Up
         </Button>
       </Form>
     </div>

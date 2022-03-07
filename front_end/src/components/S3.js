@@ -49,19 +49,23 @@ export default function S3() {
             .send((err) => {
                 if (err) console.log(err)
             })
+
+        getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
+                document.querySelector('img').src = data;
+            });
     } 
 
-    fetch("http://localhost:3001/api/posts", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
-        })
-        .then((res) => res.json())
-        .then((posts) => {
-        console.log(posts);
-    })
+    // fetch("http://localhost:3001/api/posts", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
+    //     })
+    //     .then((res) => res.json())
+    //     .then((posts) => {
+    //     console.log(posts);
+    // })
 
     function encode(data)
     {
@@ -80,17 +84,16 @@ export default function S3() {
         );
     }
 
-    getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
-        document.querySelector('img').src = data;
-    });
+ 
 
 
     return (
-       <div>
-        <div className="white-text">Upload Progress: {progress}%</div>
-        <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
-        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>        
+    <div>
+        <div className="input-group dark-background">
+            <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
+            <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload</button> 
+        </div>
+            <small className="white-text right-align">{progress}% completed</small>
     </div>
     )
 }
-
