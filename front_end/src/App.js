@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import S3 from "./components/S3";
 import ProfileUpdate from "./components/DashboardComponents/ProfileUpdate";
+import Profile from "./components/DashboardComponents/Profile";
 
 const App = (props) => {
   console.log({ props });
