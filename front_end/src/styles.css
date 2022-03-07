@@ -130,6 +130,13 @@ hr {
   color: white;
 }
 
+.image-posts {
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
 /* media queries for desktop version */
 
@@ -147,5 +154,6 @@ hr {
 
   .timeline-container {
     width: 500px;
+    
   }
 }

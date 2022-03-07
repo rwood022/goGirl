@@ -79,7 +79,7 @@ export default function Timeline(props) {
 
                 <div className="card-body">
                   <div className="card-body">{postData.message}</div>
-                  <img src={postData.imageLink} width='400px' height="400px" />
+                  <img className="image-posts mx-auto" src={postData.imageLink}/>
                   <hr></hr>
                   <div className="card-body">
                     {postData.responses.map((response) => {

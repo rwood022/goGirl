@@ -14,6 +14,9 @@ const myBucket = new AWS.S3({
     region: REGION,
 })
 
+let mimes = {
+    'jpeg': 'data:image/jpeg;base64'
+  }
 
 export default function S3() {
     const [progress, setProgress] = useState(0);
@@ -22,7 +25,6 @@ export default function S3() {
 
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
- 
     }
 
     const uploadFile = (file) => {
@@ -59,14 +61,33 @@ export default function S3() {
         console.log(posts);
     })
 
+    function encode(data)
+    {
+        var str = data.reduce(function(a,b){ return a+String.fromCharCode(b) },'');
+        return btoa(str).replace(/.{76}(?=.)/g,'$&\n');
+    }
+
+    function getUrlByFileName(fileName,mimeType) {
+        return new Promise(
+            function (resolve, reject) {
+                myBucket.getObject({Key: fileName}, function (err, file) {
+                    var result =  mimeType + encode(file.Body);
+                    resolve(result)
+                });
+            }
+        );
+    }
+
+    getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
+        document.querySelector('img').src = data;
+    });
+
+
     return (
        <div>
         <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
         <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
-        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
-
-        {imageName !==0 && <img src={`https://gogirlapp.s3.amazonaws.com/${imageName}`} width='200px' height="200px" style={{display: imageName ? 'block' : 'none' }} />}
-        
+        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>        
     </div>
     )
 }
