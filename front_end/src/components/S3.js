@@ -87,7 +87,7 @@ export default function S3() {
 
     return (
     <div>
-        <div className="input-group">
+        <div className="input-group dark-background">
             <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
             <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload</button> 
         </div>
