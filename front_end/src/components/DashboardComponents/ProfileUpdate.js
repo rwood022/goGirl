@@ -1,14 +1,77 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import BackButton from '../BackButton';
 import S3 from "../S3";
+
+const ProfileUpdate = (props) => {
+    const [state, setState] = useState ({
+        aboutMe: "",
+        placesTraveled: "",
+        profilePic: "",
+    });
+
+    useEffect(() => {
+        const { match } = props;
+        const { path = "/" } = match;
+        if (path === "/signup") {
+          document.body.style.backgroundImage =
+            "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/images/sign_up.jpg)";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundPosition = "center";
+          document.body.style.height = "100vh";
+          document.body.style.backgroundRepeat = "no-repeat";
+        }
+      }, []);
+    
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        
+        setState((prevState) => {
+            return {
+                ...prevState,
+                [name]: value,
+            };
+        });
+    };
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
+    };
+
 
 // TO DO: need to add the logic to open this form when user clicks on "edit profile" button
 
-export default function ProfileUpdate() {
     return (
-    <div>
-        <p className="white-text">hello this is the profile UPDATE form</p>
+    <div className="profile-update">
+        <BackButton />
+        <h2>Create Your Profile</h2>
         <S3 />
-
-    </div>
-    );
+        <Form onSubmit={handleOnSubmit}>
+    <Form.Group className="mb-3" controlId="aboutMe">
+    <Form.Label> About Me</Form.Label>
+    <Form.Control
+        type="text"
+        name="about-me"
+        placeholder="Please tell us about yourself."
+        value={state.aboutMe}
+        onChange={handleInputChange}
+        />
+   </Form.Group>
+   <Form.Group className="mb-3" controlId="placesTraveled">
+      <Form.Label>Places I Have Been</Form.Label>
+      <Form.Control
+            type="text"
+            name="placesTraveled"
+            placeholder="Where have you traveled?"
+            value={state.placesTraveled}
+            onChange={handleInputChange}
+            />
+       </Form.Group>
+       <Button variant="primary" type="submit">
+           Create/Update Profile
+           </Button>
+</Form>
+</div>
+);
 };
+export default ProfileUpdate;

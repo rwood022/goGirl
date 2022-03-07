@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import AWS from 'aws-sdk';
+import { Button, Form } from "react-bootstrap";
+import BackButton from "./BackButton";
 
 const S3_BUCKET = 'gogirlapp';
 const REGION = 'us-east-1';
@@ -85,7 +87,7 @@ export default function S3() {
 
     return (
        <div>
-        <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
+        <div className="white-text">Upload Progress: {progress}%</div>
         <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
         <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>        
     </div>
