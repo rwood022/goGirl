@@ -16,6 +16,7 @@ const Navbar = ({handleButtonClick}) => {
           </NavLink>
         </li>
         <li>
+      
                 <a className="white-text"
                   target="_blank"
                   href="https://www.waze.com/live-map?utm_source=waze_website&utm_campaign=waze_website&utm_medium=website_menu"

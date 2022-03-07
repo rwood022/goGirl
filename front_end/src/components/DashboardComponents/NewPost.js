@@ -17,11 +17,17 @@ export default function NewPost() {
 
     return(
     <div>
-        <form>
-        <label>What's on your mind today?</label>
-        
-        <S3 />
+        <form className="form-group">
+            <div className="input-group">
+                <textarea type="text" className="form-control" rows="3" placeholder="Tell us about your adventures!"></textarea>
+                <button className="btn btn-dark">Add Photo</button>
+            </div>
+           
+            <S3 />
+            <button className="btn btn-info w-100">Post to Timeline</button>
+
         </form>
+        
        
     </div>
     )

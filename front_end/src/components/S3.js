@@ -88,13 +88,10 @@ export default function S3() {
     return (
     <div>
         <div className="input-group">
-        <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
-        <div className="input-group-btn">
-            <button className="btn btn-dark" onClick={() => uploadFile(selectedFile)}> Upload</button>        
+            <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
+            <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload</button> 
         </div>
-        </div>
-        <div className="white-text right-align">{progress}% completed</div>
-       
+            <small className="white-text right-align">{progress}% completed</small>
     </div>
     )
 }
