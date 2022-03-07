@@ -17,7 +17,11 @@ export default function NewPost() {
 
     return(
     <div>
+        <form>
+        <label>What's on your mind today?</label>
+        
         <S3 />
+        </form>
        
     </div>
     )
