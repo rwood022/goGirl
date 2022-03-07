@@ -1,13 +1,29 @@
 import React, { useEffect } from "react";
+import"./styles.css";
 import { Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import Header from "./components/Header";
+// import { Redirect } from "react-router-dom";
+// import Header from "./components/Header";
+// import { gapi } from 'gapi-script';
+import Auth from './components/Auth';
+
+// const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
+
 import S3 from "./components/S3";
 
 const App = (props) => {
   console.log({ props });
 
   useEffect(() => {
+
+    // function start() {
+    //   gapi.client.init({
+    //     clientId: clientId,
+    //     scope: ""
+    //   })
+    // };
+
+    // gapi.load('client:auth2', start);
+
     const { match } = props;
     const { path = "/" } = match;
     if (path === "/") {
@@ -20,19 +36,23 @@ const App = (props) => {
     }
   }, []);
 
+  // var accessToken = gapi.auth.getToken().access_token;
+
   const handleRedirect = (path) => {
     props.history.push(path);
   };
   return (
     <div className="container">
       <div className="login-buttons">
-        <Button
+        {/* <Button
           variant="primary"
           className="signin-btn"
           onClick={() => handleRedirect("/signin")}
         >
           Sign In
-        </Button>
+        </Button> */}
+    
+          <Auth />
         <Button
           variant="info"
           className="signup-btn"
