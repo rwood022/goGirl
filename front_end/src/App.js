@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import"./styles.css";
 import { Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import Header from "./components/Header";
-import { gapi } from 'gapi-script';
+// import { Redirect } from "react-router-dom";
+// import Header from "./components/Header";
+// import { gapi } from 'gapi-script';
+import Auth from './components/Auth';
 
-const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
+// const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
 
 import S3 from "./components/S3";
 
@@ -14,14 +15,14 @@ const App = (props) => {
 
   useEffect(() => {
 
-    function start() {
-      gapi.client.init({
-        clientId: clientId,
-        scope: ""
-      })
-    };
+    // function start() {
+    //   gapi.client.init({
+    //     clientId: clientId,
+    //     scope: ""
+    //   })
+    // };
 
-    gapi.load('client:auth2', start);
+    // gapi.load('client:auth2', start);
 
     const { match } = props;
     const { path = "/" } = match;
@@ -50,9 +51,8 @@ const App = (props) => {
         >
           Sign In
         </Button> */}
-      <LoginButton/>
-      <LogoutButton/>
-
+    
+          <Auth />
         <Button
           variant="info"
           className="signup-btn"
