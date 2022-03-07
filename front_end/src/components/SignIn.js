@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import axios from 'axios';
 import BackButton from "./BackButton";
+import SignInButton from "./Auth";
 
 const SignIn = (props) => {
   console.log("props", props);
@@ -87,6 +88,7 @@ const SignIn = (props) => {
         <Button variant="primary" type="submit">
           Sign In
         </Button>
+        <SignInButton />
       </Form>
     </div>
   );
