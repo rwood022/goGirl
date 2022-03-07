@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Navbar from "./DashboardComponents/Navbar";
 import Profile from "./DashboardComponents/Profile";
+import NewPost from "./DashboardComponents/NewPost";
 import Timeline from "./DashboardComponents/Timeline";
 
 export default function Dashboard(props) {
@@ -25,6 +26,7 @@ export default function Dashboard(props) {
     <div>
       <Navbar handleButtonClick={handleButtonClick}/>
       { toggle && <Profile />}
+      <NewPost />
       <Timeline />
     </div>
   );

@@ -85,9 +85,14 @@ export default function S3() {
 
     return (
        <div>
-        <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
-        <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
-        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>        
+        <div class="input-group">
+        <input className= "white-text form-control" type="file" id="imageName" onChange={handleFileInput} />
+        <div class="input-group-btn">
+            <button className="btn btn-dark" onClick={() => uploadFile(selectedFile)}> Upload</button>        
+        </div>
+        </div>
+        <div className="white-text right-align">{progress}% completed</div>
+       
     </div>
     )
 }
