@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import moment  from 'moment';
+import { propTypes } from 'react-bootstrap/esm/Image';
+import { NavItem } from 'react-bootstrap';
 
 export default function FriendTimeline() {
 
@@ -85,6 +87,9 @@ export default function FriendTimeline() {
                  <strong className="post-links">12</strong><small className="post-links">  Comments</small>
              </a>
          </div>
+         <text onPress={() => propTypes.navigation.navigate('Comment'), 
+            { postId: NavItem.id }}> 
+            View Comments</text>
      </div>
 })}
   </div>
