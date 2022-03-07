@@ -63,9 +63,9 @@ This project is licensed under: [MIT](https://opensource.org/licenses/MIT)
 
 ## Contribution
 
-* Rebecca Wood (
+* [Rebecca Wood](https://github.com/rwood022):
 * [Steph Fajardo](https://github.com/stephtf): stfajardo@gmail.com
-* Akeia McCollom
+* [A'Keia McCollum](https://github.com/DrMcCollum5):
 * [Alisa Wolfram](https://github.com/ealisa818): ealisa818@gmail.com
     
 ## Deployed Link
