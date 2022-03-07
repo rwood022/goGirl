@@ -65,7 +65,7 @@ export default function Timeline(props) {
   return (
     <div>
       {/* <Navbar /> */}
-      <div className="timeline">
+      <div className="timeline timeline-container mx-auto">
         {postData &&
           postData.map((postData) => {
             return (
@@ -79,6 +79,7 @@ export default function Timeline(props) {
 
                 <div className="card-body">
                   <div className="card-body">{postData.message}</div>
+                  <img src={postData.imageLink} width='400px' height="400px" />
                   <hr></hr>
                   <div className="card-body">
                     {postData.responses.map((response) => {
