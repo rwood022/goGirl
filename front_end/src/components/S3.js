@@ -78,16 +78,16 @@ export default function S3() {
         );
     }
 
-    getUrlByFileName('S3_FILE_PATH', mimes.jpeg).then(function(data) {
+    getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
         document.querySelector('img').src = data;
     });
 
 
     return (
        <div>
-        <div className="white-text">Native SDK File Upload Progress is {progress}%</div>
-        <input className= "white-text" type="file" id="imageName" onChange={handleFileInput} />
-        <button className="btn btn-light" onClick={() => uploadFile(selectedFile)}> Upload to S3</button>        
+        <input className= "white-text" class="form-control" type="file" id="imageName" onChange={handleFileInput} />
+        <div className="white-text mt-1">{progress}% completed</div>
+        <button className="btn btn-light mt-2" onClick={() => uploadFile(selectedFile)}> Upload</button>        
     </div>
     )
 }
