@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
+const { post } = require('../../models/Response');
 
 // get all users
 // localhost:3001/api/users
@@ -142,7 +143,7 @@ router.put('/posts/:_id', async (req, res) => {
 // localhost:3001/api/posts/:_id
 router.delete('/posts/:_id', async (req, res) => {
     try {
-        const deletedPost = await User.findOneAndDelete({_id: req.params._id });
+        const deletedPost = await Post.findOneAndDelete({_id: req.params._id });
         res.status(200).json(deletedPost);
     } catch (err) {
         res.status(500).json(err);
