@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 const Navbar = ({handleButtonClick}) => {
   return (
@@ -28,7 +28,7 @@ const Navbar = ({handleButtonClick}) => {
         </NavLink>
       </li>
        <li>
-        <NavLink to="/logout" className="nav-link">
+        <NavLink to="/signin" className="nav-link">
           Logout
         </NavLink>
       </li>

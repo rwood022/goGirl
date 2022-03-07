@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import axios from 'axios';
 import BackButton from "./BackButton";
 
 const SignIn = (props) => {
   console.log("props", props);
   const [state, setState] = useState({
-    email: "",
+    username: "",
     password: "",
   });
+  const [errroMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     const { match } = props;
@@ -34,23 +36,41 @@ const SignIn = (props) => {
     });
   };
 
-  const handleOnSubmit = (event) => {
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
     console.log(state);
+   try {
+    const username = state.username.trim();
+    const password = state.password.trim();
+    if(username !== '' && password !== '') {
+     setErrorMsg("");
+     const { data } = await axios.post(`/api/users/${username}`, { password });
+     console.log(data);
+     if(data) {
+       props.history.push('/dashboard');
+     } else {
+      setErrorMsg("Authentication failed.");
+     }
+    }
+   } catch (error) {
+     setErrorMsg("Authentication failed.");
+     console.log(error);
+   }
   };
 
   return (
     <div>
       <BackButton />
       <h2>Sign In</h2>
+      {errroMsg && <p className="error-msg">{errroMsg}</p>}
       <Form onSubmit={handleOnSubmit}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group className="mb-3" controlId="username">
+          <Form.Label>Username</Form.Label>
           <Form.Control
-            type="email"
-            name="email"
-            placeholder="Please enter your email"
-            value={state.email}
+            type="username"
+            name="username"
+            placeholder="Please enter your username"
+            value={state.username}
             onChange={handleInputChange}
           />
         </Form.Group>
