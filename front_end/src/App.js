@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
 import"./styles.css";
-import LoginButton from "./components/Login";
-import LogoutButton from "./components/Logout";
 import { Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "./components/Header";
-<<<<<<< HEAD
 import { gapi } from 'gapi-script';
 
 const clientId = "181782094880-j468gjdl5lnthk3g0657ac450o4qrmb6.apps.googleusercontent.com"
 
-=======
 import S3 from "./components/S3";
->>>>>>> 6b8b8281e6b885d5ee5378fe2f71bc189efa1b34
 
 const App = (props) => {
   console.log({ props });
@@ -40,7 +35,7 @@ const App = (props) => {
     }
   }, []);
 
-  var accessToken = gapi.auth.getToken().access_token;
+  // var accessToken = gapi.auth.getToken().access_token;
 
   const handleRedirect = (path) => {
     props.history.push(path);

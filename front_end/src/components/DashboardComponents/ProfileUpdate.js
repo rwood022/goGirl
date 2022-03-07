@@ -6,7 +6,7 @@ import S3 from "../S3";
 export default function ProfileUpdate() {
     return (
     <div>
-        <p>hello this is the profile UPDATE form</p>
+        <p className="white-text">hello this is the profile UPDATE form</p>
         <S3 />
 
     </div>

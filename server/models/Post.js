@@ -6,11 +6,12 @@ const responseSchema = require('./Response');
 const postSchema = new Schema(
 {
     username: { type: String, required: true },
-    message: { type: String, required: true, minlength: 1, maxlength: 280 }, 
+    message: { type: String, minlength: 1, maxlength: 280 }, 
     createdAt: {
         type: Date,
         default: Date.now,
     },
+    imageLink: { type: String },
     
     responses: [responseSchema],
 },

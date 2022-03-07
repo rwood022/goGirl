@@ -130,6 +130,30 @@ hr {
   color: white;
 }
 
-/* .timeline-title {
-  color: rgb(66, 71, 193); 
-} */
+.image-posts {
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* media queries for desktop version */
+
+@media screen and (min-width: 500px) {
+  .full-width {
+    width: 100%;
+    border-radius: 3px;
+    margin: 0; 
+    left: 0;
+    right: 0;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .timeline-container {
+    width: 500px;
+    
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import BackButton from "./BackButton";
+import SignInButton from "./Auth";
 
 const SignIn = (props) => {
   console.log("props", props);
@@ -64,9 +65,10 @@ const SignIn = (props) => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        {/* <Button variant="primary" type="submit">
           Sign In
-        </Button>
+        </Button> */}
+        <SignInButton />
       </Form>
     </div>
   );
