@@ -15,12 +15,20 @@ router.get('/users', async (req, res) => {
     }
     });
 
-// get a single user by their id
-// localhost:3001/api/users/id 
-router.get('/users/:_id', async (req, res) => {
+// authenticate a single user by their username and password
+// localhost:3001/api/users/:username 
+router.post('/users/:username', async (req, res) => {
     try {
-        const oneUser = await User.findOne({ _id: req.params._id });
-        res.status(200).json(oneUser);
+        const { password } = req.body;
+
+        console.log({password});
+        const oneUser = await User.findOne({ username: req.params.username, password });
+        console.log({oneUser});
+        if(oneUser) {
+            res.status(200).json(oneUser);
+        } else {
+            res.status(500).json("Authentication failed");
+        }
     } catch (err) {
         res.status(500).json(err);
     }
@@ -30,10 +38,16 @@ router.get('/users/:_id', async (req, res) => {
 // localhost:3001/api/users
 router.post('/users', async (req, res) => {
     try {
-        const newUser = await User.create({ username: req.body.username, password: req.body.password }); 
-        res.status(200).json(newUser);
+        const user = await User.find({username: req.body.username, password: req.body.password});
+        console.log({user});
+        if(user.length !== 0) {
+            return res.status(400).send("User with the provided credentials already exist.");
+        }
+        await User.create({ username: req.body.username, password: req.body.password }); 
+        res.status(201).send();
     } catch (err) {
-        res.status(500).json(err); 
+        console.log(err);
+        res.status(500).json("Something went wrong. Please try again"); 
     }
     });
 
