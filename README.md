@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ## Description
-* GoGirl is a an app that allows for solo female travelers to connect with friends and family without jeopardizing their safety.
+* GoGirl is a social media app that allows for solo female travelers to connect with friends and family without jeopardizing their safety.
 * Our team designed and built this application using React, CSS, JavaScript, Bootstrap, Node.js, Express.js, MondoDb, OAuth, AWS S3.
 * The application is deployed to Heroku. 
 
@@ -63,9 +63,9 @@ This project is licensed under: [MIT](https://opensource.org/licenses/MIT)
 
 ## Contribution
 
-* [Rebecca Wood](https://github.com/rwood022):
+* [Rebecca Wood](https://github.com/rwood022):rwood022@gmail.com
 * [Steph Fajardo](https://github.com/stephtf): stfajardo@gmail.com
-* [A'Keia McCollum](https://github.com/DrMcCollum5):
+* [A'Keia McCollum](https://github.com/DrMcCollum5):Mccollumakeia@outlook.com
 * [Alisa Wolfram](https://github.com/ealisa818): ealisa818@gmail.com
     
 ## Deployed Link
