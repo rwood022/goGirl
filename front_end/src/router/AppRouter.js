@@ -5,6 +5,8 @@ import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import Header from "../components/Header";
 import Dashboard from "../components/Dashboard";
+import Navbar from "../components/DashboardComponents/Navbar";
+import Profile from "../components/DashboardComponents/Profile";
 import ProfileUpdate from '../components/DashboardComponents/ProfileUpdate'
 
 const AppRouter = () => (
@@ -18,6 +20,7 @@ const AppRouter = () => (
         <Route component={Dashboard} path="/dashboard" />
         <Route component={ProfileUpdate} path="/profileupdate" />
         <Route component={Profile} path="/profile" />
+        <Route component={Navbar} path="/navbar" />
    
       </Switch>
     </BrowserRouter>
