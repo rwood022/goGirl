@@ -42,7 +42,7 @@ export default function NewPost() {
     <div>
         <form className="form-group new-post-container full-width mb-4" onSubmit= {(e) => submit(e)}>
             <textarea type="text" className="form-control rounded-0" rows="3" placeholder="Tell us about your adventures!" onChange={(e)=>handleNewPost(e)} id="message" value={postData.message}></textarea>
-            <button className="btn post-timeline w-100 post-button">Post to Timeline</button>
+            <button className="btn w-100 post-button">Post to Timeline</button>
         </form>
         <S3 />
     </div>
