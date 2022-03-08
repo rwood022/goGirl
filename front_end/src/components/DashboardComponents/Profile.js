@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from "../Navbar";
+// import Navbar from "../Navbar";
 import { Button, Form } from 'react-bootstrap';
 import BackButton from '../BackButton';
 
 
-export default function Profile(props) {
+export default function Profile () {
     const [userData, setUserData] = useState([]);
 
-    useEffect(() => {
-        console.log("pp", props);
-        const { match } = props;
-        const { path = "/" } = match;
-        if (path === "/timeline") {
-            document.body.style.backgroundImage =
-                "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundPosition = "center";
-            document.body.style.height = "100vh"; // vh stands for viewport height
-            document.body.style.backgroundRepeat = "no-repeat";
-        }
-    }, []);
+    // useEffect(() => {
+    //     console.log("pp", props);
+    //     const { match } = props;
+    //     const { path = "/" } = match;
+    //     if (path === "/timeline") {
+    //         document.body.style.backgroundImage =
+    //             "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/timeline.jpg)";
+    //         document.body.style.backgroundSize = "cover";
+    //         document.body.style.backgroundPosition = "center";
+    //         document.body.style.height = "100vh"; // vh stands for viewport height
+    //         document.body.style.backgroundRepeat = "no-repeat";
+    //     }
+    // }, []);
 
-    const handleComponentChange = (event) => {
-        event.preventDefault();
-    };
+    // const handleComponentChange = (event) => {
+    //     event.preventDefault();
+    // };
 
     useEffect(() => {
         fetch("http://localhost:3001/api/user", {
@@ -58,16 +58,16 @@ export default function Profile(props) {
             <div className="card-body">{userData.aboutMe}</div>
             <br></br>
             <div className="card-body">
-                <h3>About Me: {userData.aboutMe}
-                </h3>
-                <div className="card-body">
-                    <h3>Places I have been: {userData.placesTraveled}
-                    </h3>
+                <h2> About Me: {userData.aboutMe}
+                </h2>
+            <div className="card-body">
+            <h2>Places I have been: {userData.placesTraveled}
+                    </h2>
                 </div>
             </div>
 
             {/* <button href="#ProfileUpdate"
-                onClick={() => handleComponentChange('ProfileUpdate')}
+                onClick={() => handleInputChange('ProfileUpdate')}
                 className={currentComponent === 'Profile' ? 'btn active' : 'btn'}>
                 Update Profile
             </button> */}
