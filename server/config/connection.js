@@ -7,10 +7,15 @@ const { connect, connection } = require('mongoose');
 
 
 //add new db
-connect('mongodb://localhost:27017/goGirl', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb+srv://localhost/goGirl',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  },
+);
 
 
 

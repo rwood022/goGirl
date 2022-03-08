@@ -3,6 +3,7 @@ const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
 const { post } = require('../../models/Response');
+const Comment = require('../../models/Comments');
 
 // get all users
 // localhost:3001/api/users

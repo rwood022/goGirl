@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
-//schema forcreating a new user
+//schema for creating a new user
 
 const userSchema = new mongoose.Schema({
         username: {type: String, required: true},

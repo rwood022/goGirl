@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './Comment';
 
 export default function Profile() {
     return (
@@ -11,6 +12,8 @@ export default function Profile() {
                 className={currentComponent === 'Profile' ? 'btn active' : 'btn'}>
                 Update Profile
             </button> */}
+
+            <Comment/>
     </div>
     );
 };
