@@ -49,7 +49,6 @@ export default function Timeline() {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="timeline timeline-container mx-auto">
         {postData &&
           postData.map((postData) => {
@@ -64,7 +63,8 @@ export default function Timeline() {
 
                 <div className="card-body">
                   <div className="card-body">{postData.message}</div>
-                  <img className="image-posts mx-auto" src={postData.imageLink}/>
+                  {postData.imageLink && 
+                  <img className="image-posts mx-auto" src={postData.imageLink}/>}
                   <hr></hr>
                   <div className="card-body">
                     {postData.responses.map((response) => {
@@ -77,7 +77,7 @@ export default function Timeline() {
                           <p>responsebody {response.responseBody}</p>
                         </div>
                       );
-                    })}{" "}
+                    })}
                     <br></br>
                   </div>
                 </div>
