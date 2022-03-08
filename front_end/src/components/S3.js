@@ -23,6 +23,14 @@ export default function S3() {
     const [selectedFile, setSelectedFile] = useState(0);
     const [imageName, setImageName] = useState(0); 
 
+    // state for image data to send to mongodb database
+//     const [imagePost, setImagePost] = useState({
+//     username: "steph123",
+//     imageLink: `https://gogirlapp.s3.amazonaws.com/${imageName}`
+// })
+
+
+
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
     }
@@ -42,28 +50,39 @@ export default function S3() {
 
                 if(evt.total === evt.loaded) {
                     setImageName(selectedFile.name)
+                    getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
+                        document.querySelector('img').src = data;
+                    });
+
+                    // setImagePost(selectedFile.name)
+                        
+                    fetch('http://localhost:3001/api/posts', {
+                        method: 'POST', 
+                        headers: {
+                            'Content-Type': 'application/json', 
+                        },
+                        body: JSON.stringify({
+                            username: "steph123",
+                            imageLink: `https://gogirlapp.s3.amazonaws.com/${selectedFile.name}`
+                        })
+                    })
+                    .then((res) => res.json())
+                    .then((newPost) => {
+                        console.log(newPost);
+                        window.location.reload();
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })   
                 }
             })
             .send((err) => {
                 if (err) console.log(err)
             })
-
-        getUrlByFileName({imageName}, mimes.jpeg).then(function(data) {
-                document.querySelector('img').src = data;
-            });
+        
+        
     } 
 
-    // fetch("http://localhost:3001/api/posts", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((posts) => {
-    //     console.log(posts);
-    // })
 
     function encode(data)
     {
@@ -85,6 +104,7 @@ export default function S3() {
  
 
 
+
     return (
     <div>
         <div className="input-group dark-background upload-photo">
@@ -92,7 +112,7 @@ export default function S3() {
             <label for="imageName" className="btn photo-button">Add Photo</label>
             <button className="btn photo-button rounded-0 m-0" onClick={() => uploadFile(selectedFile)}> Upload</button>
         </div>
-            <small className="white-text right-align upload-progress">{progress}% completed</small>
+            <small uploaded={imageName} className="white-text right-align upload-progress">{progress}% completed</small>
         
     </div>
     )

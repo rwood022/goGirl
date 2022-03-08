@@ -180,12 +180,10 @@ hr {
 }
 
 .post-button {
-  box-shadow: 1px 1px 5px black;
-}
-
-.post-timeline {
+  box-shadow: 0px 2px 5px 0px black;
   background-color:rgb(10, 117, 150);
   color: white;
+  border-radius: 0px;
 }
 
 .upload-photo {
@@ -207,6 +205,7 @@ label {
 
 .photo-button {
   color:rgb(10, 117, 150);
+  background-color:rgb(218, 238, 244);
 }
 
 .upload-progress {
@@ -214,6 +213,10 @@ label {
   margin-bottom: 5px;
   font-size: 10px;
 }
+
+/* .timeline-container {
+  width: 100vw;
+} */
 
 /* media queries for desktop version */
 
@@ -245,4 +248,8 @@ label {
     width: 500px;
     
   }
+
+  /* .upload-photo {
+    width: 500px;
+  } */
 }

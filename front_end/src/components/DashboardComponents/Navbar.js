@@ -7,7 +7,7 @@ const Navbar = ({handleButtonClick}) => {
       <ul className="nav-bar">
         <li>
           <NavLink to="/dashboard" className="nav-link" onClick={handleButtonClick}>
-            Profile
+            View Profile
           </NavLink>
         </li>
         <li>
@@ -17,7 +17,7 @@ const Navbar = ({handleButtonClick}) => {
         </li>
         <li>
       
-                <a className="white-text nav-link"
+                <a className="white-text"
                   target="_blank"
                   href="https://www.waze.com/live-map?utm_source=waze_website&utm_campaign=waze_website&utm_medium=website_menu"
                 > WAZE
