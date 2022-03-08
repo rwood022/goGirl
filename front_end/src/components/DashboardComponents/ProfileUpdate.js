@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import BackButton from '../BackButton';
 import S3 from "../S3";
+import React from 'react';
+// import S3 from "../S3";
 
 const ProfileUpdate = (props) => {
     const [newUser, setNewUser] = useState ({

@@ -1,4 +1,4 @@
-const path = require('path');
+require('dotenv').config();
 const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
@@ -24,7 +24,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(cors());
-//app.use(express.static(path.join(__dirname, '..', 'front_end', 'build')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
