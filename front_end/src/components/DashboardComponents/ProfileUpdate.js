@@ -69,7 +69,7 @@ const ProfileUpdate = (props) => {
         type="text"
         name="about-me"
         placeholder="Please tell us about yourself."
-        value={state.aboutMe}
+        value={newUser.FormaboutMe}
         onChange={handleInputChange}
         />
    </Form.Group>
@@ -79,7 +79,7 @@ const ProfileUpdate = (props) => {
             type="text"
             name="placesTraveled"
             placeholder="Where have you traveled?"
-            value={state.placesTraveled}
+            value={newUser.placesTraveled}
             onChange={handleInputChange}
             />
        </Form.Group>
