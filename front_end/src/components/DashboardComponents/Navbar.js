@@ -18,7 +18,7 @@ const Navbar = ({handleButtonClick}) => {
         <li>
       
                 <a className="white-text"
-                  target="_blank"
+                  target="_blank" rel="noreferrer"
                   href="https://www.waze.com/live-map?utm_source=waze_website&utm_campaign=waze_website&utm_medium=website_menu"
                 > WAZE
                 </a>

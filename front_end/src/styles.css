@@ -214,9 +214,6 @@ label {
   font-size: 10px;
 }
 
-/* .timeline-container {
-  width: 100vw;
-} */
 
 /* media queries for desktop version */
 
@@ -249,7 +246,8 @@ label {
     
   }
 
-  /* .upload-photo {
+  .dashboard-container {
     width: 500px;
-  } */
+  }
+  
 }
