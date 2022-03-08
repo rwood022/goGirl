@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ## Description
 * GoGirl is a social media app that allows for solo female travelers to connect with friends and family without jeopardizing their safety.
-* Our team designed and built this application using OAuth, Passport, Multer, AWS-S3, React, CSS, JavaScript, Bootstrap, Node.js, Express.js, MongoDb, .
+* Our team designed and built this application using OAuth, Passport, Multer, AWS-S3, React, CSS, JavaScript, Bootstrap, Node.js, Express.js, and MongoDb.
 * The application is deployed to Heroku. 
 
 * INSERT LINK TO APP
