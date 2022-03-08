@@ -47,6 +47,7 @@ export default function Timeline() {
       });
   }, []);
 
+
   return (
     <div>
       <div className="timeline timeline-container mx-auto">
@@ -70,11 +71,11 @@ export default function Timeline() {
                     {postData.responses.map((response) => {
                       return (
                         <div key={response._id}>
-                          <p>{response.username}</p>
-                          <p>
-                            <small>Responded at {response.createdAt} </small>
-                          </p>
-                          <p>responsebody {response.responseBody}</p>
+                          <p>{response.username} replied</p>
+                          {/* <p>
+                            <small>{response.createdAt} </small>
+                          </p> */}
+                          <p>{response.responseBody}</p>
                         </div>
                       );
                     })}
