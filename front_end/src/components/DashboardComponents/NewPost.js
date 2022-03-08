@@ -35,11 +35,7 @@ export default function NewPost() {
         
     }
 
-    function handleNewImage(e) {
-        const newPostData = {...postData}
-        newPostData[e.target.id] = e.target.value 
-        setPostData(newPostData)
-    }
+
 
 
     return(
@@ -48,7 +44,7 @@ export default function NewPost() {
             <textarea type="text" className="form-control rounded-0" rows="3" placeholder="Tell us about your adventures!" onChange={(e)=>handleNewPost(e)} id="message" value={postData.message}></textarea>
             <button className="btn post-timeline w-100 post-button">Post to Timeline</button>
         </form>
-        <S3 onChange={(e)=>handleNewImage(e)} value={`https://gogirlapp.s3.amazonaws.com/${postData.imageLink}`}/>
+        <S3 />
     </div>
     )
 }

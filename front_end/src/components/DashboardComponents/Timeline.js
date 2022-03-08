@@ -88,7 +88,7 @@ export default function Timeline() {
                     href="/"
                     className="d-inline-block text-muted response-icons"
                   >
-                    <strong className="post-links">12</strong>
+                    <strong className="post-links">{postData.responseCount}</strong>
                     <small className="post-links"> Comments</small>
                   </a>
                 </div>
