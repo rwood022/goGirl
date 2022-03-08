@@ -3,15 +3,12 @@ const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
-// const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
-// const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-// const findOrCreate = require("mongoose-findorcreate");
 const User = require('./models/User');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 
@@ -34,6 +31,17 @@ app.get("/logout", function(req, res){
   res.redirect("http://localhost:3000/");
 });
 
+
+app.get("/auth/google",
+passport.authenticate("google", { scope: ["profile"] })
+);
+app.get("/auth/google/callback",
+passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
+function(req, res) {
+// Successful authentication, redirect secrets.
+res.redirect("http://localhost:3000");
+})
+
 passport.use(User.createStrategy());
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -46,7 +54,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/auth/google/callback",
+    callbackURL: "http://localhost:4000/auth/google/callback",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {

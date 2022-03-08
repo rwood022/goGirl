@@ -5,10 +5,10 @@ const findOrCreate = require("mongoose-findorcreate");
 //schema forcreating a new user
 
 const userSchema = new mongoose.Schema({
-        username: {type: String, required: true},
-        name: {type: String, required: true},
-        googleId: {type: String, required: true},
-        secret: {type: String, required: true},
+        username: {type: String },
+        name: {type: String },
+        googleId: {type: String },
+        secret: {type: String },
 });
 
 
