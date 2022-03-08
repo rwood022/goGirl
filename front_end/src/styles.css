@@ -53,6 +53,7 @@ a.nav-link {
   color: #fff;
   letter-spacing: 1px;
   margin: 0;
+  margin-right: 15px;
   padding: 5px 10px;
 }
 
@@ -61,6 +62,7 @@ a.nav-link {
   font-weight: bold;
   font-size: 15px;
   padding: 5px 10px;
+  margin-left: 20px;
 }
 
 h1 {
@@ -118,6 +120,7 @@ label {
   justify-content: center;
   align-items: center;
   margin-top: 200px;
+  width: 100%;
 }
 
 .signin-btn,
@@ -208,11 +211,36 @@ label {
   background-color:rgb(218, 238, 244);
 }
 
+.edit-button {
+  background-color:rgb(16, 30, 36);
+  color: white;
+  font-size: 15px;
+}
+
+.profile {
+  background-color: rgb(10, 117, 150);
+  opacity: 90%;
+  margin-right: 0;
+}
+
+.profile-button {
+  padding: 6px;
+  background-color: rgb(16, 30, 36);
+}
+
+.edit-button:hover {
+  color:rgb(218, 238, 244);
+  opacity: 90%;
+}
+
 .upload-progress {
   margin-right: 10px;
   margin-bottom: 5px;
   font-size: 10px;
 }
+
+
+  
 
 
 /* media queries for desktop version */
@@ -250,4 +278,14 @@ label {
     width: 500px;
   }
   
+  .new-post-container {
+    margin-top: 10px;
+  }
+
+  .profile-button {
+    width: 22%;
+    padding: 3px;
+    background-color: rgb(16, 30, 36);
+  }
+
 }

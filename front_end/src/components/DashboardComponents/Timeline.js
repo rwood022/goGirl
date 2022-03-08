@@ -22,7 +22,7 @@ export default function Timeline() {
 
         for (let i = 0; i < posts.length; i++) {
           postsArray.push(posts[i]);
-          setPostData([...postsArray]);
+          setPostData([...postsArray].reverse());
 
           // use moment.js to format the time with .fromNow
           const postDate = moment().format(posts[i].createdAt);
@@ -39,7 +39,7 @@ export default function Timeline() {
           timestampArray.push(
             moment(postDateValues).from(moment(fromNowValues))
           );
-          setTimestamp([...timestampArray]);
+          setTimestamp([...timestampArray].reverse());
         }
       })
       .catch((err) => {

@@ -44,15 +44,16 @@ const App = (props) => {
   return (
     <div className="container">
       <div className="login-buttons">
-        {/* <Button
+      <Auth />
+
+        <Button
           variant="primary"
-          className="signin-btn"
-          onClick={() => handleRedirect("/signin")}
+          className="signin-btn mt-4 mb-0"
+          onClick={() => handleRedirect("/dashboard")}
         >
           Sign In
-        </Button> */}
+        </Button>
     
-          <Auth />
         <Button
           variant="info"
           className="signup-btn"

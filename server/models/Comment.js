@@ -1,20 +1,20 @@
-const { Schema, model } = require('mongoose');
+// const { Schema, model } = require('mongoose');
 
 
-const commentSchema = new Schema ({
+// const commentSchema = new Schema ({
 
-    body: {
-        type: String,
+//     body: {
+//         type: String,
         
-    },
-    createdUser: {
-        type: Schema.type.ObjectId,
-        ref: "User"
-    }
-})
+//     },
+//     createdUser: {
+//         type: Schema.type.ObjectId,
+//         ref: "User"
+//     }
+// })
 
-const Comment = model("Comment", commentSchema);
+// const Comment = model("Comment", commentSchema);
 
-module.exports = Comment;
+// module.exports = Comment;
 
 

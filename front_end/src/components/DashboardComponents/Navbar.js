@@ -11,11 +11,6 @@ const Navbar = ({handleButtonClick}) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/timeline" className="nav-link">
-            Post
-          </NavLink>
-        </li>
-        <li>
       
                 <a className="white-text"
                   target="_blank" rel="noreferrer"
@@ -29,7 +24,7 @@ const Navbar = ({handleButtonClick}) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/logout" className="nav-link">
+          <NavLink to="/" className="nav-link">
             Logout
           </NavLink>
         </li>
