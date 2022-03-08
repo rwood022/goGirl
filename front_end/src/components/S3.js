@@ -26,10 +26,10 @@ export default function S3() {
     const [imageName, setImageName] = useState(0); 
 
     // state for image data to send to mongodb database
-//     const [imagePost, setImagePost] = useState({
-//     username: "steph123",
-//     imageLink: `https://gogirlapp.s3.amazonaws.com/${imageName}`
-// })
+    const [imagePost, setImagePost] = useState({
+    username: "steph123",
+    imageLink: `https://gogirlapp.s3.amazonaws.com/${imageName}`
+})
 
 
 
@@ -111,7 +111,7 @@ export default function S3() {
     <div>
         <div className="input-group dark-background upload-photo">
             <input className= "white-text form-control rounded-0 upload-photo" type="file" accept="image/*" id="imageName" onChange={handleFileInput}/>        
-            <label for="imageName" className="btn photo-button">Add Photo</label>
+            <label htmlFor="imageName" className="btn photo-button">Add Photo</label>
             <button className="btn photo-button rounded-0 m-0" onClick={() => uploadFile(selectedFile)}> Upload</button>
         </div>
             <small uploaded={imageName} className="white-text right-align upload-progress">{progress}% completed</small>

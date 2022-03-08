@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import React from "react";
+// import React from "react";
 import Navbar from "./DashboardComponents/Navbar";
 import Profile from "./DashboardComponents/Profile";
 import NewPost from "./DashboardComponents/NewPost";
@@ -23,7 +23,7 @@ export default function Dashboard(props) {
   const handleButtonClick = () => setToggle(toggle => !toggle);
 
   return (
-    <div>
+    <div className="dashboard-container mx-auto"> 
       <Navbar handleButtonClick={handleButtonClick}/>
       { toggle && <Profile />}
       <NewPost />
