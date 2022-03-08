@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 // import Navbar from "../Navbar";
 import { Button, Form } from 'react-bootstrap';
-import BackButton from '../BackButton';
+// import BackButton from '../BackButton';
 
 
 export default function Profile () {
-    const [userData, setUserData] = useState([]);
+    const [profileData, setProfileData] = useState([]);
 
     // useEffect(() => {
     //     console.log("pp", props);
@@ -26,42 +26,47 @@ export default function Profile () {
     // };
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/user", {
+        fetch("http://localhost:3001/api/profiles", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(),
         })
+
             .then((res) => res.json())
             .then((users) => {
                 console.log(users);
+            let profileArray = [];
+            for (let i = 0; i < users.length; i++) {
+                profileArray.push(users[i]);
+                setProfileData(profileArray[i]);
+            }
             })
             .catch((err) => {
                 console.err(err);
             });
     }, []);
 
+
+
     return (
-        <div>
-            <BackButton />
-            <div className="profile profile-container mx-auto">
+        <div> 
+
+            <div className="profile profile-container card mx-auto">
             </div>
-            <div className="post full-width mt-4" key={userData._id}></div>
+            {/* <div className="post full-width mt-4" key={profileData.about}></div> */}
             <div className="container card-body mb-2">
-                <h5 className="mb-0">{userData.username}</h5>
-            </div>
-            <div>
-                <img className="image-users mx-auto" src={userData.imageLink} />
+                {/* <h5 className="mb-0">{profileData.username}</h5> */}
             </div>
             <hr></hr>
-            <div className="card-body">{userData.aboutMe}</div>
+            {/* <div className="card-body">{profileData.about}</div> */}
             <br></br>
             <div className="card-body">
-                <h2> About Me: {userData.aboutMe}
+                <h2> About Me: {profileData.about}
                 </h2>
             <div className="card-body">
-            <h2>Places I have been: {userData.placesTraveled}
+            <h2>Places I have been: {profileData.places_traveled}
                     </h2>
                 </div>
             </div>

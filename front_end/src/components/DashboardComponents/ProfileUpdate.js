@@ -8,7 +8,7 @@ const ProfileUpdate = (props) => {
     const [newUser, setNewUser] = useState ({
         aboutMe: "",
         placesTraveled: "",
-        profilePic: "",
+        imageLink: "",
     });
 
     // useEffect(() => {

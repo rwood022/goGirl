@@ -250,4 +250,7 @@ label {
     width: 500px;
   }
   
+  .new-post-container {
+    margin-top: 10px;
+  }
 }
