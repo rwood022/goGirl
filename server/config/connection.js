@@ -7,7 +7,7 @@ const { connect, connection } = require('mongoose');
 
 
 //add new db
-mongoose.connect(
+connect(
   process.env.MONGODB_URI || 'mongodb+srv://localhost/goGirl',
   {
     useNewUrlParser: true,
