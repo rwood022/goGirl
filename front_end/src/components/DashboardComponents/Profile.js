@@ -1,16 +1,43 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 
 export default function Profile() {
-    return (
-    <div>
-        <p className="white-text">hello this is where the profile will go</p>
-{/* TO DO: add the divs for where the data will go (about section and places traveled), then add a button for editing one's profile */}
+    const [profileData, setProfileData] = useState([]);
 
-            {/* <button href="#ProfileUpdate"
-                onClick={() => handleComponentChange('ProfileUpdate')}
-                className={currentComponent === 'Profile' ? 'btn active' : 'btn'}>
-                Update Profile
-            </button> */}
-    </div>
+    useEffect(() => {
+        fetch("http://localhost:3001/api/profiles", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+
+    
+            let profileArray = [];
+
+            for (let i = 0; i < data.length; i++) {
+                profileArray.push(data[i]);
+                setProfileData(profileArray[i]);
+            }
+ 
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, []);
+
+
+
+    return (
+      <div className='profile card card-body'> 
+        <h2 className="white-text mb-2 mt-2">About Me:</h2>
+        <p className="white-text">{profileData.about}</p>
+        <p className="white-text">{profileData.places_traveled}</p>
+      </div> 
     );
 };
+
