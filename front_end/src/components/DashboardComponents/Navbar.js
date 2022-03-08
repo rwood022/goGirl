@@ -24,7 +24,7 @@ const Navbar = ({handleButtonClick}) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/logout" className="nav-link">
+          <NavLink to="/" className="nav-link">
             Logout
           </NavLink>
         </li>

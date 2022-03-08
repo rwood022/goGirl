@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import { NavLink } from 'react-router-dom';
 
 export default function Profile() {
     const [profileData, setProfileData] = useState([]);
@@ -33,10 +34,13 @@ export default function Profile() {
 
 
     return (
-      <div className='profile card card-body'> 
+      <div className='profile card card-body full-width'> 
         <h2 className="white-text mb-2 mt-2">About Me:</h2>
         <p className="white-text">{profileData.about}</p>
         <p className="white-text">{profileData.places_traveled}</p>
+          <NavLink to="/profileupdate" className="btn white-text profile-button mx-auto">
+            Edit Profile
+          </NavLink>
       </div> 
     );
 };
