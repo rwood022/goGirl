@@ -12,8 +12,8 @@ connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    // useCreateIndex: true,
+    // useFindAndModify: false,
   },
 );
 
