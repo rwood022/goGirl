@@ -198,7 +198,7 @@ router.get('/profiles', async (req, res) => {
     });
 
 // create a profile route 
-// localhost:3001/api/profile
+// localhost:3001/api/profiles
 router.post('/profiles', async (req, res) => {
     try {
         const newProfile = await Profile.create({ user_id: req.body.user_id, about: req.body.about, places_traveled: req.body.places_traveled }); 
