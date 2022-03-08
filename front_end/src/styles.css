@@ -253,4 +253,8 @@ label {
   .new-post-container {
     margin-top: 10px;
   }
+
+  .profile {
+    background-color: #0A7596;
+  }
 }
