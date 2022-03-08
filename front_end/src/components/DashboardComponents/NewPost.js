@@ -1,34 +1,47 @@
-import React from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import S3 from '../S3';
 
 export default function NewPost() {
 
-    // fetch("http://localhost:3001/api/posts", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(`https://gogirlapp.s3.amazonaws.com/${imageName}`),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((posts) => {
-    //     console.log(posts);
-    // })
+    const [postData, setPostData] = useState({
+        username: "",
+        message: "",
+        imageLink: ""
+    })
+
+    function submit(e) {
+        e.preventDefault();
+        fetch('/api/posts', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify(postData)
+        })
+        .then((res) => res.json())
+        .then((newPost) => {
+            console.log(newPost);
+        })
+        .catch(err => {
+            console.error(err);
+        })    
+    }
+
+    function handleNewPost(e) {
+        const newPostData = {...postData}
+        newPostData[e.target.id] = e.target.value 
+        setPostData(newPostData)
+        console.log(newPostData);
+        
+    }
 
     return(
     <div>
-        <form className="form-group">
-            <div className="input-group">
-                <textarea type="text" className="form-control" rows="3" placeholder="Tell us about your adventures!"></textarea>
-                <button className="btn btn-dark">Add Photo</button>
-            </div>
-           
-            <S3 />
-            <button className="btn btn-info w-100">Post to Timeline</button>
-
+        <form className="form-group new-post-container full-width" onSubmit= {(e) => submit(e)}>
+            <textarea type="text" className="form-control rounded-0" rows="3" placeholder="Tell us about your adventures!" onChange={(e)=>handleNewPost(e)} id="message" value={postData.message}></textarea>
+            <S3 onChange={(e)=>handleNewPost(e)} id="imageLink" value={postData.imageLink}/>
+            <button className="btn post-timeline w-100 post-button" onClick={(e)=>handleNewPost(e)} id="username" value={postData.username}>Post to Timeline</button>
         </form>
-        
-       
     </div>
     )
 }
