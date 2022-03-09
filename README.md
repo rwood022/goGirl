@@ -16,7 +16,9 @@ As a solo female traveler, I want an app that allows me to stay in contact with 
 
 ## Screenshots
 
-INSERT SCREENSHOTS HERE
+![image](https://user-images.githubusercontent.
+<img width="1171" alt="homepage_screenshot" src="https://user-images.githubusercontent.com/91564283/157485921-3e5d8896-7985-42a0-8b09-17dbd6d6d918.png">
+
 
 ## Usage
 
