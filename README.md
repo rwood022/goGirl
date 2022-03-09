@@ -19,6 +19,12 @@ As a solo female traveler, I want an app that allows me to stay in contact with 
 ![image](https://user-images.githubusercontent.
 <img width="1171" alt="homepage_screenshot" src="https://user-images.githubusercontent.com/91564283/157485921-3e5d8896-7985-42a0-8b09-17dbd6d6d918.png">
 
+<img width="1171" alt="signup_screenshot" src="https://user-images.githubusercontent.com/91564283/157486396-378b6c4c-2f7f-455d-8b88-fe21ef59b6ee.png">
+
+<img width="1171" alt="dashboard_screenshot" src="https://user-images.githubusercontent.com/91564283/157486434-432b52de-500e-465c-929a-309848e874cc.png">
+
+<img width="1171" alt="timeline_screenshot" src="https://user-images.githubusercontent.com/91564283/157486502-f9cf5833-ada0-4fd3-affd-47dcb8b29242.png">
+
 
 ## Usage
 
