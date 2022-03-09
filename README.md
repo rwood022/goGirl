@@ -6,7 +6,7 @@
 * Our team designed and built this application using OAuth, Passport, Multer, AWS-S3, React, CSS, JavaScript, Bootstrap, Node.js, Express.js, and MongoDb.
 * The application is deployed to Heroku. 
 
-* INSERT LINK TO APP
+* https://gogirl2022.herokuapp.com/
 
 ## User Story
 
